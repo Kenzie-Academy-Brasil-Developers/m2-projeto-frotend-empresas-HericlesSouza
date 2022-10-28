@@ -1,0 +1,11 @@
+:root {
+    --color-brand-1: #4200FF;
+    --color-grey-800: #FFFFFF;
+    --color-grey-100: #000000;
+    --color-error: #CE4646;
+    --color-success: #4BA036;
+}
+
+.container {
+    width: 100vw;
+}
