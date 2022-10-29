@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/positioning.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Register</title>
+</head>
+<body>
+    <header class="header">
+        <div class="content-header flex container">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+                <img class="img-burguer" src="../assets/burguer.png" alt="menu">
+            </figure>
+            <div class="flex">
+                <button class="btn-login">Login</button>
+                <button class="btn-register">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main class="flex justify-center background-image">
+        <section>
+            <form class="register flex flex-col">
+                <h2>Cadastre-se</h2>
+                <input id="username" type="text" placeholder="Seu nome" required>
+                <input id="email" type="email" placeholder="Seu e-mail" required>
+                <input id="password" type="password" placeholder="Sua senha" required>
+                <select name="" id="professional_level">
+                    <option value="0" hidden>Nível profissional</option>
+                    <option value="1">Estágio</option>
+                    <option value="2">Júnior</option>
+                    <option value="3">Pleno</option>
+                    <option value="4">Senior</option>
+                </select>
+                <button type="submit" class="btn-register">Cadastre-se</button>
+                <button class="btn-login">Retornar</button>
+            </form>
+        </section>
+    </main>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
