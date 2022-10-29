@@ -1,12 +1,6 @@
-#username, #email, #password, #professional_level{
+#username, #email, #password, #professional_level {
     padding: 17px 20px 13px 20px;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-
-color: rgba(0, 0, 0, 0.5);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.5);
 }
