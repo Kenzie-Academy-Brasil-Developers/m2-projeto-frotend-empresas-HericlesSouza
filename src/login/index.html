@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/positioning.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Login</title>
+</head>
+<body>
+    <header class="header">
+        <div class="content-header flex container">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+                <img class="img-burguer" src="../assets/burguer.png" alt="menu">
+            </figure>
+            <div class="flex">
+                <button class="btn-login">Login</button>
+                <button class="btn-register">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main class="flex justify-center background-image">
+        <section>
+            <form class="register flex flex-col">
+                <div class="header-form">
+                    <h2>Login</h2>
+                    <p>Preencha os campos para realizar login</p>
+                </div>
+                <input id="email" type="email" placeholder="Seu e-mail" required>
+                <input id="password" type="password" placeholder="Sua senha" required>
+                <button type="submit" class="btn-register">Login</button>
+                <p>ou</p>
+                <button class="btn-login">Cadastrar-se</button>
+            </form>
+        </section>
+    </main>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
