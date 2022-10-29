@@ -1,0 +1,130 @@
+.header {
+    padding: 22.75px 14px;
+    background: var(--color-grey-800);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.content-header {
+    width: 100%;
+}
+
+.content-header>figure {
+    width: 100%;
+}
+
+#circle {
+    margin: 0 0.654rem 0 0.813rem;
+}
+
+#img-arrow {
+    right: 17px;
+}
+
+.photo-home-page {
+    display: none;
+}
+
+.background-image {
+    height: 100vh;
+    background-image: url(../assets/background-register.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+main>section {
+    width: 100%;
+    height: max-content;
+    margin-top: 28px;
+    background-color: var(--color-grey-800);
+    padding: 14px;
+}
+
+.register {
+    width: 100%;
+    background-color: var(--color-grey-800);
+    gap: 13px;
+}
+
+.register>h2 {
+    margin: 40px 0 26px 0;
+    font-family: 'Poppins';
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-5);
+    line-height: 48px;
+    color: var(--color-grey-100);
+}
+
+.register>.btn-register {
+    display: block;
+    width: 100%;
+}
+
+.register>.btn-login {
+    display: block;
+    width: 100%;
+    margin-bottom: 39px;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+
+    .content-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .img-burguer {
+        display: none;
+    }
+
+    .btn-login {
+        display: block;
+    }
+
+    .btn-register {
+        display: block;
+    }
+
+    .background-image {
+        background-image: url(../assets/desktop-background-register.png);    
+    }
+
+    main>section {
+        justify-content: center;
+        align-items: center;
+        width: 31.625rem;
+        margin-top: 143px;
+        padding: 40px 43px;
+    }
+
+    .register {
+        width: 100%;
+        background-color: var(--color-grey-800);
+        gap: 13px;
+    }
+
+    .register>h2 {
+        margin: 0 0;
+        font-size: var(--font-size-6);
+        line-height: 60px;    
+    }
+
+    .register>.btn-register {
+        display: block;
+        width: 100%;
+    }
+
+    .register>.btn-login {
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+}
