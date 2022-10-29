@@ -54,3 +54,32 @@
     height: 48px;
     cursor: pointer;
 }
+
+.btn-login-burguer  {
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-brand-1);
+    background-color: transparent;
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    margin: 0 0.688rem 0 0.813rem;
+    cursor: pointer;
+}
+
+.btn-register-burguer {
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-1);
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    cursor: pointer;
+}
