@@ -18,13 +18,27 @@
             <figure class="flex justify-between align-center">
                 <div class="flex align-center">
                     <img id="circle" src="../assets/circle-kenzie.png">
-                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                    <img onclick="window.location.href = '../index.html'" src="../assets/Kenzie Empresas.png" alt="name kenzie">
                 </div>
                 <img class="img-burguer" src="../assets/burguer.png" alt="menu">
             </figure>
             <div class="flex">
-                <button class="btn-login">Login</button>
+                <button onclick="window.location.href = '../login/index.html'" class="btn-login">Login</button>
                 <button class="btn-register">Cadastro</button>
+            </div>
+        </div>
+        <div hidden class="menu-burguer absolute">
+            <div class="flex justify-between align-center container">
+                <figure class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </figure>
+                <button class="btn-close-menu">X</button>
+            </div>
+            <div class="div-buttons flex align-center justify-between">
+                <button onclick="window.location.href = '../login/index.html'" class="btn-login-burguer">Login</button>
+                <button onclick="window.location.href = '../register/index.html'"
+                    class="btn-register-burguer">Cadastro</button>
             </div>
         </div>
     </header>
@@ -43,7 +57,7 @@
                     <option value="4">Senior</option>
                 </select>
                 <button type="submit" class="btn-register">Cadastre-se</button>
-                <button class="btn-login">Retornar</button>
+                <button onclick="history.back()" class="btn-login">Retornar</button>
             </form>
         </section>
     </main>
