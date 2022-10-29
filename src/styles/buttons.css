@@ -1,0 +1,56 @@
+.btn-select-sector {
+    font-family: 'Poppins', sans-serif;
+    margin: 23px 0 0 0;
+    padding: 13px 0;
+    width: 100%;
+    font-size: var(--font-size-2);
+    line-height: 1.688rem;
+    text-align: center;
+    color: var(--color-grey-800);
+    background-color: var(--color-brand-1);
+    border: none;
+    cursor: pointer;
+}
+
+.sector-company {
+    padding: 6px 16px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4200FF;
+    border: 1px solid #4200FF;
+    border-radius: 255px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-login {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-brand-1);
+    background-color: transparent;
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    margin-right: 11px;
+    cursor: pointer;
+}
+
+.btn-register {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-1);
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    cursor: pointer;
+}
