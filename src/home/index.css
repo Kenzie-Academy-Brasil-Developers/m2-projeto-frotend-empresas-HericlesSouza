@@ -83,7 +83,7 @@ main>section {
 
 @media (min-width: 1024px) {
     .container {
-        width: 1200px;
+        width: 1024px;
         margin: 0 auto;
     }
 
@@ -152,5 +152,12 @@ main>section {
 
     .sector-company {
         margin-top: 6px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+        margin: 0 auto;
     }
 }
