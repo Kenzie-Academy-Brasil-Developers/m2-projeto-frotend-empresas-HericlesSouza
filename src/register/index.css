@@ -72,6 +72,12 @@ main>section {
     color: var(--color-grey-100);
 }
 
+.register>p {
+    font-size: var(--font-size-1);
+    line-height: 19px;
+    color: var(--color-error);
+}
+
 .register>.btn-register {
     display: block;
     width: 100%;
@@ -85,7 +91,7 @@ main>section {
 
 @media (min-width: 1024px) {
     .container {
-        width: 1200px;
+        width: 1024px;
         margin: 0 auto;
     }
 
@@ -145,4 +151,11 @@ main>section {
         margin-bottom: 0;
     }
 
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
 }
