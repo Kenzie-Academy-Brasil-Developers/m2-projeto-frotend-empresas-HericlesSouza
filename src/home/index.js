@@ -3,26 +3,38 @@ import { allCompanies } from "../scripts/request.js";
 
 openMenuBurguer()
 
-const array = await allCompanies()
-
-async function cardsCompanies(array) {
-    const ul = document.querySelector('.list-companies')
-    array.forEach(element => {
-        const li = document.createElement('li')
-        const h2 = document.createElement('h2')
-        const p = document.createElement('p')
-        const button = document.createElement('button')
-
-        li.classList = 'company'
-        button.classList = 'sector-company'
-
-        h2.innerText = element.name
-        p.innerText = `${element.opening_hours} horas`
-        button.innerText = element.sectors.description
-
-        li.append(h2, p, button)
-        ul.append(li)
+async function cardsCompanies() {
+    const companies = await allCompanies()
+    companies.forEach(element => {
+        renderCompanies(element)
     });
+}
+cardsCompanies()
+
+async function renderCompanies(array) {
+    const ul = document.querySelector('.list-companies')
+
+    const li = document.createElement('li')
+    const h2 = document.createElement('h2')
+    const p = document.createElement('p')
+    const button = document.createElement('button')
+
+    li.classList = 'company'
+    button.classList = 'sector-company'
+
+    h2.innerText = array.name
+    p.innerText = `${array.opening_hours} horas`
+    button.innerText = array.sectors.description
+
+    li.append(h2, p, button)
+    ul.append(li)
+
     return ul
 }
-cardsCompanies(array)
+
+async function filterCompanies(array) {
+    const button = document.querySelector('.btn-select-sector')
+    console.log(button)
+}
+
+filterCompanies()
