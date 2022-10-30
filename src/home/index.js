@@ -1,5 +1,5 @@
 import { openMenuBurguer } from "../scripts/menuBurguer.js";
-import { allCompanies } from "../scripts/request.js";
+import {allCompanies} from "../scripts/request.js"
 
 openMenuBurguer()
 
@@ -36,5 +36,4 @@ async function filterCompanies(array) {
     const button = document.querySelector('.btn-select-sector')
     console.log(button)
 }
-
 filterCompanies()

@@ -1,12 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/positioning.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="index.css">
     <title>Kenzie Empresas</title>
 </head>
+
 <body>
-    <h1>User page</h1>
+    <header>
+        <div class="content-header flex container justify-between">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+            </figure>
+            <button onclick="window.location.href = './login/index.html'" class="btn-login-burguer">Logout</button>
+        </div>
+    </header>
+    <main class="container">
+        <section class="info-user flex justify-between">
+            <div>
+                <h1>USERNAME</h1>
+                <div class="flex">
+                    <p class="user-email">Email: meuemail@mail.com</p>
+                    <p class="profissional-level">Pleno</p>
+                    <p class="type-work">Home Office</p>
+                </div>
+            </div>
+            <figure class="align-self-center">
+                <div class="photo-edit-user"></div>
+            </figure>
+        </section>
+        <!-- <section class="user-without-company flex align-center justify-center">
+            <h1>Você ainda não foi contratado</h1>
+        </section> -->
+        <section class="info-company">
+            <header>
+                <h1 class="title-company">Company Name - Department Name</h1>
+            </header>
+            <div class="flex align-center justify-center">
+                <ul class="flex cowork-list wrap">
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li><li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    <li class="info-cowork">
+                        <h2>Nome do colega</h2>
+                        <p>Senior</p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="index.js"></script>
 </body>
+
 </html>
