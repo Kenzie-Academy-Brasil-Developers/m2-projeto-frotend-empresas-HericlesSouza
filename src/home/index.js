@@ -1,8 +1,8 @@
 import { openMenuBurguer } from "../scripts/menuBurguer.js";
-import { allCompanies } from "../scripts/request.js";
+import {allCompanies} from "../scripts/request.js"
 
 openMenuBurguer()
-
+console.log(allCompanies())
 async function cardsCompanies() {
     const companies = await allCompanies()
     companies.forEach(element => {

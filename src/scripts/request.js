@@ -35,13 +35,13 @@ async function login(body) {
         const request = await fetch(`${baseUrl}auth/login`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type" : "application/json",
             },
             body: JSON.stringify(body)
         })
         const response = await request.json()
 
-        if (request.ok) {
+        if(request.ok) {
             localStorage.setItem('@token', (JSON.stringify(response)))
             validateUser()
         } else {
@@ -55,7 +55,7 @@ async function login(body) {
 
 async function validateUser() {
     const token = JSON.parse(localStorage.getItem('@token'))
-    try {
+     try {
         const request = await fetch(`${baseUrl}auth/validate_user`, {
             method: "GET",
             headers: {
@@ -64,9 +64,9 @@ async function validateUser() {
             }
         })
         const response = await request.json()
-
-        if (request.ok) {
-            if (response.is_admin) {
+        
+        if(request.ok) {
+            if(response.is_admin) {
                 window.location.assign("../admin_page/index.html")
             } else {
                 window.location.assign("../user_page/index.html")
@@ -80,23 +80,4 @@ async function validateUser() {
     }
 }
 
-async function allCompanies() {
-    try {
-        const request = await fetch(`${baseUrl}companies`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        const response = await request.json()
-        if (request.ok) {
-            return response
-
-        } else {
-            throw new Error(response.error)
-        }
-    } catch (err) {
-        console.log(err)
-    }
-}
-export { userRegister, login, allCompanies }
+export { userRegister, login }
