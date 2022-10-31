@@ -91,7 +91,7 @@
     cursor: pointer;
 }
 
-.create-department {
+.btn-create-department {
     padding: 0 16px;
     width: 150px;
     height: 48px;
@@ -101,48 +101,7 @@
     font-size: var(--font-size-2);
     line-height: 22px;
     color: var(--color-grey-800);
-}
-
-.all-departments, .all-users {
-    padding: 34px 56px;
-    margin-top: 20px;
-    width: 100%;
-    height: 385px;
-    background: var(--color-grey-700);
-    overflow-y: auto;
-}
-
-.list-departments, .list-users {
-    gap: 28px 55px;
-}
-
-.info-department, .info-user {
-    padding: 18px 29px 31px 29px;
-    width: 420px;
-    height: 196px;
-    background: var(--color-grey-800);
-    border-bottom: 1px solid var(--color-brand-1);
-}
-
-.div-info-department, .div-info-user {
-    gap: 10px;
-}
-
-.div-info-department>h2, .div-info-user>h2 {
-    font-weight: var(--font-weight-1);
-    font-size: var(--font-size-3);
-    line-height: 24px;
-    color: var(--color-grey-100);
-}
-
-.div-info-department>p, .div-info-user>p{
-    font-size: var(--font-size-2);
-    line-height: 22px;
-    color: var(--color-grey-100);
-}
-
-.div-icons {
-    gap: 20px;
+    cursor: pointer;
 }
 
 .icon-eyes {
@@ -173,15 +132,68 @@
     cursor: pointer;
 }
 
-.registered-users>h2 {
-    margin-top: 69px;
-    font-weight: var(--font-weight-1);
-    font-size: var(--font-size-7);
-    line-height: 36px;
-    color: var(--color-grey-100);
-    text-align: center;
-}
-
 #btn-logout {
     margin: 0;
+    cursor: pointer;
+}
+
+.btn-close-modal, .btn-close-modal-edit, .btn-close-modal-delete, .btn-close-modal-create {
+    width: max-content;
+    font-size: var(--font-size-4);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    right: 11px;
+    top: 14px;
+}
+
+.hire-btn {
+    margin-top: 14px;
+    align-self: flex-end;
+    width: max-content;
+    padding: 13px 30px;
+    background: var(--color-success);
+    border: transparent;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    color: var(--color-grey-800);
+    cursor: pointer;
+}
+
+.dismiss {
+    margin-top: 15px;
+    width: max-content;
+    padding: 13px 41px;
+    border: 1px solid var(--color-error);
+    font-weight: var(--font-weight-1);
+    background-color: transparent;
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    color: var(--color-error);
+    cursor: pointer;
+}
+
+.btn-delete-employees-confirm {
+    margin-bottom: 66px;
+    margin-top: 40px;
+    width: 422px;
+    height: 48px;
+    background: var(--color-success);
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: transparent;
+    color: var(--color-grey-800);
+}
+
+#btn-save {
+    margin-top: 14px;
+    margin-bottom: 42px;
+    width: 100%;
+    display: block;
 }

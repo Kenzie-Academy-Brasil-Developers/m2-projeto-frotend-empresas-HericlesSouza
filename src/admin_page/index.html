@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/inputs.css">
     <link rel="stylesheet" href="../styles/buttons.css">
     <link rel="stylesheet" href="../styles/reset.css">
@@ -23,7 +24,8 @@
                     <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
                 </div>
             </figure>
-            <button onclick="window.location.href = './login/index.html'" id="btn-logout" class="btn-login-burguer">Logout</button>
+            <button onclick="window.location.href = './login/index.html'" id="btn-logout"
+                class="btn-login-burguer">Logout</button>
         </div>
     </header>
     <main class="container">
@@ -36,7 +38,7 @@
                     <option value="">Automotivo</option>
                     <option value="">Automotivo</option>
                 </select>
-                <button class="create-department flex align-center">
+                <button class="btn-create-department flex align-center">
                     <img src="../assets/plus-create.png" alt="">
                     Criar
                 </button>
@@ -146,6 +148,88 @@
             </div>
         </section>
     </main>
+    <dialog id="info-department">
+        <div class="flex justify-end">
+            <button class="btn-close-modal ">X</button>
+        </div>
+        <h2 class="department-name">Nome do departamento</h2>
+        <div class="flex justify-between">
+            <div>
+                <p class="department-description">Descrição do departamento</p>
+                <p class="department-company">Empresa pertencente</p>
+            </div>
+            <div class="div-select flex flex-col">
+                <select id="user-select">
+                    <option hidden value="">Selecionar usuário</option>
+                    <option value="">Selecionar usuário</option>
+                    <option value="">Selecionar usuário</option>
+                    <option value="">Selecionar usuário</option>
+                </select>
+                <button class="hire-btn">Contratar</button>
+            </div>
+        </div>
+        <ul class="flex list-employees">
+            <li class="employee flex flex-col">
+                <h2 class="name">Username</h2>
+                <p class="profissional_level">Pleno</p>
+                <p class="company-name">Company Name</p>
+                <button class="dismiss align-self-center">Desligar</button>
+            </li>
+            <li class="employee flex flex-col">
+                <h2 class="name">Username</h2>
+                <p class="profissional_level">Pleno</p>
+                <p class="company-name">Company Name</p>
+                <button class="dismiss align-self-center">Desligar</button>
+            </li>
+            <li class="employee flex flex-col">
+                <h2 class="name">Username</h2>
+                <p class="profissional_level">Pleno</p>
+                <p class="company-name">Company Name</p>
+                <button class="dismiss align-self-center">Desligar</button>
+            </li>
+        </ul>
+    </dialog>
+    <dialog id="create-department" class="relative">
+        <button class="btn-close-modal-create align-self-end absolute">X</button>
+        <div>
+            <h2 class="department-create">Criar Departamento</h2>
+            <form class="flex flex-col">
+                <input id="name" type="text" placeholder="Nome do departamento">
+                <input id="description" type="text" placeholder="Descrição">
+                <select id="company">
+                    <option hidden value="0">Selecionar empresa</option>
+                    <option value="0">Empresa 1</option>
+                    <option value="0">Empresa 1</option>
+                </select>
+                <button type="submit" class="btn-register">Criar o departamento</button>
+            </form>
+        </div>
+    </dialog>
+    <dialog id="delete-department">
+        <div class="flex justify-end">
+            <button class="btn-close-modal-delete">X</button>
+        </div>
+        <div class="flex align-center justify-center flex-col">
+            <h2 class="department-delete">Realmente deseja deletar o Departamento NOME e demitir seus funcionários?
+            </h2>
+            <button class="btn-delete-employees-confirm">Confirmar</button>
+        </div>
+    </dialog>
+    <dialog id="edit-department" class="relative">
+        <div class="flex justify-end">
+            <button class="btn-close-modal-edit align-self-end">X</button>
+        </div>
+        <div>
+            <h2 class="department-create">Editar Departamento</h2>
+            <form class="flex flex-col">
+                <textarea name="" id="department-description" placeholder="Valores anteriores da descrição"></textarea>
+                <button type="submit" id="btn-save" class="btn-register">Salvar alterações</button>
+            </form>
+        </div>
+    </dialog>
+    
+    <script type="module" src="index.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>
