@@ -137,4 +137,52 @@ async function filterSector(sector) {
         console.log(err)
     }
 }
-export { userRegister, login, allCompanies, allSectors, filterSector }
+
+async function allDepartments() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+
+    try {
+        const request = await fetch(`${baseUrl}departments`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            }
+        })
+        const response = await request.json()
+        if(request.ok) {
+            return response
+        } else {
+            throw new Error (response.error)
+        }
+
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+async function allUsers() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+
+    try {
+        const request = await fetch(`${baseUrl}users`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token.token}`
+            }
+        })
+        const response = await request.json()
+        console.log(response)
+        if(request.ok) {
+            return response
+        } else {
+            throw new Error (response.error)
+        }
+
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers}

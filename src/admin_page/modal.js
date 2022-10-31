@@ -5,12 +5,11 @@ function showModalDepartmentCreate() {
     buttonIcon.addEventListener('click', () => {
         modal.showModal()
     })
-    console.log(buttonClose)
+
     buttonClose.addEventListener('click', () => {
         modal.close()
     })
 }
-showModalDepartmentCreate()
 
 function showModalDepartmentInfo() {
     const buttonIcon = document.querySelector('.icon-eyes')
@@ -19,12 +18,11 @@ function showModalDepartmentInfo() {
     buttonIcon.addEventListener('click', () => {
         modal.showModal()
     })
-    console.log(buttonClose)
+
     buttonClose.addEventListener('click', () => {
         modal.close()
     })
 }
-showModalDepartmentInfo()
 
 function showModalDepartmentEdit() {
     const buttonIcon = document.querySelector('.icon-edit')
@@ -33,12 +31,11 @@ function showModalDepartmentEdit() {
     buttonIcon.addEventListener('click', () => {
         modal.showModal()
     })
-    console.log(buttonClose)
+
     buttonClose.addEventListener('click', () => {
         modal.close()
     })
 }
-showModalDepartmentEdit()
 
 function showModalDepartmentDelete() {
     const buttonIcon = document.querySelector('.icon-trash')
@@ -47,9 +44,10 @@ function showModalDepartmentDelete() {
     buttonIcon.addEventListener('click', () => {
         modal.showModal()
     })
-    console.log(buttonClose)
+
     buttonClose.addEventListener('click', () => {
         modal.close()
     })
 }
-showModalDepartmentDelete()
+
+export { showModalDepartmentCreate, showModalDepartmentInfo, showModalDepartmentEdit, showModalDepartmentDelete }
