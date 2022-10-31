@@ -1,12 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/positioning.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="index.css">
     <title>Kenzie Empresas</title>
 </head>
+
 <body>
-    <h1>Admin</h1>
+    <header>
+        <div class="content-header flex container justify-between">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+            </figure>
+            <button onclick="window.location.href = './login/index.html'" id="btn-logout" class="btn-login-burguer">Logout</button>
+        </div>
+    </header>
+    <main class="container">
+        <section class="departments">
+            <div class="div-header flex justify-between align-center">
+                <h2>Departamentos</h2>
+                <select name="" id="">
+                    <option value="">Selecionar Empresa</option>
+                    <option value="">Automotivo</option>
+                    <option value="">Automotivo</option>
+                    <option value="">Automotivo</option>
+                </select>
+                <button class="create-department flex align-center">
+                    <img src="../assets/plus-create.png" alt="">
+                    Criar
+                </button>
+            </div>
+            <div class="all-departments">
+                <ul class="list-departments flex wrap">
+                    <li class="info-department flex flex-col justify-between">
+                        <div class="div-info-department flex flex-col">
+                            <h2>Department Name</h2>
+                            <p>Department Description</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-eyes"></div>
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-department flex flex-col justify-between">
+                        <div class="div-info-department flex flex-col">
+                            <h2>Department Name</h2>
+                            <p>Department Description</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-eyes"></div>
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-department flex flex-col justify-between">
+                        <div class="div-info-department flex flex-col">
+                            <h2>Department Name</h2>
+                            <p>Department Description</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-eyes"></div>
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-department flex flex-col justify-between">
+                        <div class="div-info-department flex flex-col">
+                            <h2>Department Name</h2>
+                            <p>Department Description</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-eyes"></div>
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="registered-users">
+            <h2>Usuários cadastrados</h2>
+            <div class="all-users">
+                <ul class="list-users flex wrap">
+                    <li class="info-user flex flex-col justify-between">
+                        <div class="div-info-user flex flex-col">
+                            <h2>Username</h2>
+                            <p>Pleno</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-user flex flex-col justify-between">
+                        <div class="div-info-user flex flex-col">
+                            <h2>Username</h2>
+                            <p>Pleno</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-user flex flex-col justify-between">
+                        <div class="div-info-user flex flex-col">
+                            <h2>Username</h2>
+                            <p>Pleno</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                    <li class="info-user flex flex-col justify-between">
+                        <div class="div-info-user flex flex-col">
+                            <h2>Username</h2>
+                            <p>Pleno</p>
+                            <p>Company Name</p>
+                        </div>
+                        <div class="div-icons flex align-center justify-center">
+                            <div class="icon-edit"></div>
+                            <div class="icon-trash"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
