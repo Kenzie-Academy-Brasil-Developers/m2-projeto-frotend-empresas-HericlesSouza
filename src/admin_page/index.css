@@ -1,0 +1,42 @@
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 22.75px 14px;
+    background: var(--color-grey-800);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#circle {
+    margin: 0 0.654rem 0 0.813rem;
+}
+
+#img-arrow {
+    right: 17px;
+}
+
+.departments {
+    margin-top: 93px;
+}
+
+.div-header>h2 {
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-7);
+    line-height: 36px;
+    color: var(--color-grey-100);
+}
+
+.div-header>select {
+    padding: 4px 33px;
+    font-size: var(--font-size-3);
+    line-height: 24px;
+    color: var(--color-grey-100);
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
+
+.create-department>img {
+    margin-right: 30px;
+}
