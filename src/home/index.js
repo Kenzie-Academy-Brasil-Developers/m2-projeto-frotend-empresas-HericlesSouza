@@ -1,5 +1,5 @@
 import { openMenuBurguer } from "../scripts/menuBurguer.js";
-import {allCompanies} from "../scripts/request.js"
+import { allCompanies, allSectors, filterSector } from "../scripts/request.js"
 
 openMenuBurguer()
 
@@ -32,8 +32,36 @@ async function renderCompanies(array) {
     return ul
 }
 
-async function filterCompanies(array) {
-    const button = document.querySelector('.btn-select-sector')
-    console.log(button)
+async function renderOptionsSelect() {
+    const sectors = await allSectors()
+    const select = document.querySelector('.sector-select')
+
+    sectors.forEach(element => {
+        const options = document.createElement('option')
+        options.value = element.description
+        options.innerText = element.description
+        select.append(options)
+    })
+}
+renderOptionsSelect()
+
+async function filterCompanies() {
+    const select = document.querySelector('.sector-select')
+
+    select.addEventListener('change', async () => {
+        const option = select.options[select.selectedIndex].value
+        const ul = document.querySelector('.list-companies')
+        const sector = await filterSector(option)
+
+        if (option !== "Todos os setores") {
+            ul.innerHTML = ""
+            sector.forEach(element => {
+                renderCompanies(element)
+            })
+        } else {
+            ul.innerHTML = ""
+            cardsCompanies()
+        }
+    })
 }
 filterCompanies()

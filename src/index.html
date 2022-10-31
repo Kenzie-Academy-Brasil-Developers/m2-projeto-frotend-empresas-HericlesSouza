@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/select.css">
     <link rel="stylesheet" href="./styles/buttons.css">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/positioning.css">
@@ -48,9 +49,10 @@
             <img class="photo-home-page" src="./assets/photo-home-page.png" alt="">
         </figure>
         <section class="flex flex-col">
-            <button class="btn-select-sector relative">Selecionar Setor
-                <img id="img-arrow" class="absolute" src="./assets/arrow-setor.png" alt="">
-            </button>
+            <select class="sector-select relative">
+                <option hidden value="Selecionar setor">Selecionar setor</option>
+                <option value="Todos os setores">Todos os setores</option>
+            </select>
             <div class="companies">
                 <ul class="flex list-companies">
                 </ul>

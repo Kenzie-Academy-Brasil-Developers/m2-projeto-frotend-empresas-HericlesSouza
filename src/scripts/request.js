@@ -99,4 +99,42 @@ async function allCompanies() {
         console.log(err)
     }
 }
-export { userRegister, login, allCompanies }
+
+async function allSectors() {
+    try {
+        const request = await fetch(`${baseUrl}sectors`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const response = await request.json()
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(response.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function filterSector(sector) {
+    try {
+        const request = await fetch(`${baseUrl}companies/${sector}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        const response = await request.json()
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(response.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+export { userRegister, login, allCompanies, allSectors, filterSector }
