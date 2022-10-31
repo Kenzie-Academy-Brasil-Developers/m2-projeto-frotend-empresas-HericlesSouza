@@ -13,4 +13,5 @@
     background-image: url(../assets/arrow-setor.png);
     background-repeat: no-repeat;
     background-position: right;
+    cursor: pointer;
 }
