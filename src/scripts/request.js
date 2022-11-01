@@ -150,13 +150,13 @@ async function allDepartments() {
             }
         })
         const response = await request.json()
-        if(request.ok) {
+        if (request.ok) {
             return response
         } else {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
 
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -173,16 +173,36 @@ async function allUsers() {
             }
         })
         const response = await request.json()
-        console.log(response)
-        if(request.ok) {
+        if (request.ok) {
             return response
         } else {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
 
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
 
-export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers}
+async function unemployedUsers() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}admin/out_of_work`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer: ${token.token}`
+            }
+        })
+        const response = await request.json()
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(response.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers }

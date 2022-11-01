@@ -32,11 +32,9 @@
         <section class="departments">
             <div class="div-header flex justify-between align-center">
                 <h2>Departamentos</h2>
-                <select name="" id="">
-                    <option value="">Selecionar Empresa</option>
-                    <option value="">Automotivo</option>
-                    <option value="">Automotivo</option>
-                    <option value="">Automotivo</option>
+                <select  id="select-all-companies">
+                    <option hidden value="0">Selecionar Empresa</option>
+                    <option value="Todas">Todas as empresas</option>
                 </select>
                 <button class="btn-create-department flex align-center">
                     <img src="../assets/plus-create.png" alt="">
@@ -69,10 +67,7 @@
             </div>
             <div class="div-select flex flex-col">
                 <select id="user-select">
-                    <option hidden value="">Selecionar usuário</option>
-                    <option value="">Selecionar usuário</option>
-                    <option value="">Selecionar usuário</option>
-                    <option value="">Selecionar usuário</option>
+                    <option hidden value="0">Selecionar usuário</option>
                 </select>
                 <button class="hire-btn">Contratar</button>
             </div>
