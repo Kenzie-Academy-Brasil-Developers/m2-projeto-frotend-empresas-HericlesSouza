@@ -40,6 +40,10 @@
     cursor: pointer;
 }
 
+.btn-login:hover {
+    background-color: var(--color-hover-1);
+}
+
 .btn-register, .btn-edit {
     display: none;
     font-family: 'Roboto', sans-serif;
@@ -53,6 +57,10 @@
     width: 142px;
     height: 48px;
     cursor: pointer;
+}
+
+.btn-register:hover, .btn-edit:hover {
+    background-color: var(--color-hover-2);
 }
 
 .btn-login-burguer {
@@ -104,6 +112,10 @@
     cursor: pointer;
 }
 
+.btn-create-department:hover {
+    background-color: var(--color-hover-2);
+}
+
 .icon-eyes {
     width: 44px;
     height: 30px;
@@ -137,6 +149,10 @@
     cursor: pointer;
 }
 
+#btn-logout:hover {
+    background-color: var(--color-hover-1);
+}
+
 .btn-close-modal, .btn-close-modal-edit, .btn-close-modal-delete, .btn-close-modal-create, .btn-close-modal-edit-user, .btn-close-modal-delete-user {
     width: max-content;
     font-size: var(--font-size-4);
@@ -162,6 +178,10 @@
     cursor: pointer;
 }
 
+.hire-btn:hover {
+    background-color: var(--color-hover-3);
+}
+
 .dismiss {
     margin-top: 15px;
     width: max-content;
@@ -174,6 +194,12 @@
     text-align: center;
     color: var(--color-error);
     cursor: pointer;
+}
+
+.dismiss:hover {
+    color: var(--color-grey-800);
+    background-color: var(--color-hover-4);
+    border: 1px solid var(--color-hover-4);
 }
 
 .btn-delete-employees-confirm, .btn-delete-user-confirm {
@@ -189,6 +215,10 @@
     cursor: pointer;
     border: transparent;
     color: var(--color-grey-800);
+}
+
+.btn-delete-employees-confirm:hover, .btn-delete-user-confirm:hover {
+    background-color: var(--color-hover-3);
 }
 
 #btn-save {

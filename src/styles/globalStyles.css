@@ -6,7 +6,11 @@
     --color-grey-800: #FFFFFF;
     --color-error: #CE4646;
     --color-success: #4BA036;
-
+    --color-hover-1: #f2f8fb;
+    --color-hover-2: #0000ae;
+    --color-hover-3: #008000;
+    --color-hover-4: #DB3C58;
+    
     --font-weight-1: 700;
     --font-weight-2: 600;
     --font-weight-3: 500;

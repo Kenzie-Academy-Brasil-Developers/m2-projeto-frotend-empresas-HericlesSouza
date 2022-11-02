@@ -30,6 +30,7 @@ async function showModalDepartmentCreate() {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault()
+        
         const elements = [...form]
         const companies = await allCompanies()
         console.log(companies)
