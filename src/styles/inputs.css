@@ -4,3 +4,12 @@
     line-height: 22px;
     color: rgba(0, 0, 0, 0.5);
 }
+
+#username:focus, #email:focus, #password:focus, #professional_level:focus, #name:focus, #description:focus, #company_uuid:focus {
+    outline-color: var(--color-brand-1);
+}
+
+.error {
+    border: 2px solid var(--color-error);
+    outline: none;
+}
