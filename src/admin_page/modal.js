@@ -1,5 +1,5 @@
 import { allCompanies, allDepartments, allUsers, createDepartment, deleteDepartment, deleteEmplyoee, editDescriptionDepartment, editEmplyoee, fireEmplyoee, hireEmployee, unemployedUsers } from "../scripts/request.js"
-import { filterCompany, renderAllUsers, showAllModal } from "./index.js"
+import { filterCompany, renderAllUsers, showAllModalDepartment, showAllModalUser } from "./index.js"
 
 async function showModalDepartmentCreate() {
     const buttonIcon = document.querySelector('.btn-create-department')
@@ -164,11 +164,12 @@ function showModalDepartmentInfo() {
 
             btnHire.addEventListener('click', hire)
             async function hire() {
+                const unemployedsBtn = await unemployedUsers()
                 const listUnemployed = document.querySelector('#user-select')
                 const emplyoee = listUnemployed.options[listUnemployed.selectedIndex].value
                 const body = {}
 
-                unemployeds.forEach(element => {
+                unemployedsBtn.forEach(element => {
                     if (element.username === emplyoee) {
                         body['user_uuid'] = element.uuid
                         body['department_uuid'] = department
@@ -178,6 +179,7 @@ function showModalDepartmentInfo() {
                 await renderUsersDepartment(department)
                 await renderSelectUnemployed(await unemployedUsers())
                 await renderAllUsers()
+                await showAllModalUser()
             }
 
             await renderUsersDepartment(department)
@@ -289,7 +291,8 @@ function showModalEditUser() {
                         event.preventDefault()
                         await editEmplyoee(id, body)
                         await renderAllUsers()
-                        await showAllModal()
+                        await showAllModalDepartment()
+                        await showAllModalUser()
                         modal.close()
                     }, { once: true })
                 }
@@ -322,7 +325,8 @@ function showModalDeleteUser() {
             buttonDelete.addEventListener('click', async () => {
                 await deleteEmplyoee(id)
                 await renderAllUsers()
-                await showAllModal()
+                await showAllModalDepartment()
+                await showAllModalUser()
                 modal.close()
             }, { once: true })
             modal.showModal()

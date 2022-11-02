@@ -1,7 +1,12 @@
 import {openMenuBurguer} from "../scripts/menuBurguer.js";
-import { login } from "../scripts/request.js";
+import { login, validateUser } from "../scripts/request.js";
 
 openMenuBurguer()
+
+async function autoLogin() {
+    await validateUser()
+}
+autoLogin()
 
 function loginUser() {
     const form = document.querySelector('.login')

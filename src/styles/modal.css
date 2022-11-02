@@ -10,7 +10,7 @@ dialog {
     border-radius: 10px;
 }
 
-.department-name, .department-create, .department-delete, .user-delete {
+.department-name, .department-create, .department-delete, .user-delete, .user-edit {
     font-family: 'Poppins';
     font-weight: var(--font-weight-1);
     font-size: var(--font-size-9);
@@ -96,12 +96,12 @@ dialog {
     padding-right: 43px;
 }
 
-#edit-department, #create-department, #edit-user {
+#edit-department, #create-department, #edit-user, #edit-info-user {
     width: 506px;
     height: max-content;
 }
 
-#edit-department>div, #create-department {
+#edit-department>div, #create-department, #edit-info-user {
     padding: 0 30px;
 }
 
@@ -126,7 +126,7 @@ dialog {
     gap: 13px;
 }
 
-#kindofwork, #professional_level {
+#kind_of_work, #professional_level {
     padding: 17px;
     background: var(--color-grey-800);
     border: 1px solid rgba(0, 0, 0, 0.3);
