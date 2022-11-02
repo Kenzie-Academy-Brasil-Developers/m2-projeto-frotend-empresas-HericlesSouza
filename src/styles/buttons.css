@@ -137,7 +137,7 @@
     cursor: pointer;
 }
 
-.btn-close-modal, .btn-close-modal-edit, .btn-close-modal-delete, .btn-close-modal-create {
+.btn-close-modal, .btn-close-modal-edit, .btn-close-modal-delete, .btn-close-modal-create, .btn-close-modal-edit-user, .btn-close-modal-delete-user {
     width: max-content;
     font-size: var(--font-size-4);
     border: none;
@@ -176,7 +176,7 @@
     cursor: pointer;
 }
 
-.btn-delete-employees-confirm {
+.btn-delete-employees-confirm, .btn-delete-user-confirm {
     margin-bottom: 66px;
     margin-top: 40px;
     width: 422px;

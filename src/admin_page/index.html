@@ -24,7 +24,7 @@
                     <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
                 </div>
             </figure>
-            <button onclick="window.location.href = './login/index.html'" id="btn-logout"
+            <button onclick="window.location.href = '../login/index.html'" id="btn-logout"
                 class="btn-login-burguer">Logout</button>
         </div>
     </header>
@@ -32,7 +32,7 @@
         <section class="departments">
             <div class="div-header flex justify-between align-center">
                 <h2>Departamentos</h2>
-                <select  id="select-all-companies">
+                <select id="select-all-companies">
                     <option hidden value="0">Selecionar Empresa</option>
                     <option value="Todas">Todas as empresas</option>
                 </select>
@@ -50,7 +50,7 @@
             <h2>Usuários cadastrados</h2>
             <div class="all-users">
                 <ul class="list-users flex wrap">
-                   
+
                 </ul>
             </div>
         </section>
@@ -73,37 +73,17 @@
             </div>
         </div>
         <ul class="flex list-employees">
-            <li class="employee flex flex-col">
-                <h2 class="name">Username</h2>
-                <p class="profissional_level">Pleno</p>
-                <p class="company-name">Company Name</p>
-                <button class="dismiss align-self-center">Desligar</button>
-            </li>
-            <li class="employee flex flex-col">
-                <h2 class="name">Username</h2>
-                <p class="profissional_level">Pleno</p>
-                <p class="company-name">Company Name</p>
-                <button class="dismiss align-self-center">Desligar</button>
-            </li>
-            <li class="employee flex flex-col">
-                <h2 class="name">Username</h2>
-                <p class="profissional_level">Pleno</p>
-                <p class="company-name">Company Name</p>
-                <button class="dismiss align-self-center">Desligar</button>
-            </li>
         </ul>
     </dialog>
     <dialog id="create-department" class="relative">
         <button class="btn-close-modal-create align-self-end absolute">X</button>
         <div>
             <h2 class="department-create">Criar Departamento</h2>
-            <form class="flex flex-col">
-                <input id="name" type="text" placeholder="Nome do departamento">
-                <input id="description" type="text" placeholder="Descrição">
-                <select id="company">
+            <form id="form-create-company" class="flex flex-col">
+                <input id="name" type="text" placeholder="Nome do departamento" required>
+                <input id="description" type="text" placeholder="Descrição" required>
+                <select required id="company_uuid">
                     <option hidden value="0">Selecionar empresa</option>
-                    <option value="0">Empresa 1</option>
-                    <option value="0">Empresa 1</option>
                 </select>
                 <button type="submit" class="btn-register">Criar o departamento</button>
             </form>
@@ -114,7 +94,8 @@
             <button class="btn-close-modal-delete">X</button>
         </div>
         <div class="flex align-center justify-center flex-col">
-            <h2 class="department-delete">Realmente deseja deletar o Departamento NOME e demitir seus funcionários?
+            <h2 class="department-delete">Realmente deseja deletar o Departamento <span id="name-department">NOME</span>
+                e demitir seus funcionários?
             </h2>
             <button class="btn-delete-employees-confirm">Confirmar</button>
         </div>
@@ -126,12 +107,43 @@
         <div>
             <h2 class="department-create">Editar Departamento</h2>
             <form class="flex flex-col">
-                <textarea name="" id="department-description" placeholder="Valores anteriores da descrição"></textarea>
+                <textarea name="" id="department-description"></textarea>
                 <button type="submit" id="btn-save" class="btn-register">Salvar alterações</button>
             </form>
         </div>
     </dialog>
-    
+    <dialog id="edit-user" class="relative">
+        <button class="btn-close-modal-edit-user align-self-end absolute">X</button>
+        <div>
+            <h2 class="edit-user">Editar usuário</h2>
+            <form id="form-edit-user" class="flex flex-col">
+                <select required id="kindofwork">
+                    <option hidden value="0">Selecionar modalidade de trabalho</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="hibrido">Hibrido</option>
+                    <option value="home office">Home Office</option>
+                </select>
+                <select required id="professional_level">
+                    <option hidden value="0">Selecionar nível profissional</option>
+                    <option value="estágio">Estágio</option>
+                    <option value="júnior">Júnior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="sênior">Senior</option>
+                </select>
+                <button type="submit" class="btn-register">Editar</button>
+            </form>
+        </div>
+    </dialog>
+    <dialog id="delete-user">
+        <div class="flex justify-end">
+            <button class="btn-close-modal-delete-user">X</button>
+        </div>
+        <div class="flex align-center justify-center flex-col">
+            <h2 class="user-delete">Realmente deseja remover o usuário <span id="name-user">NOME</span>?
+            </h2>
+            <button class="btn-delete-user-confirm">Deletar</button>
+        </div>
+    </dialog>
     <script type="module" src="index.js"></script>
     <script type="module" src="modal.js"></script>
 </body>
