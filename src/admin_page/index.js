@@ -1,11 +1,130 @@
-import { allCompanies, allDepartments, allUsers } from "../scripts/request.js"
-import { showModalDepartmentCreate, showModalDepartmentDelete, showModalDepartmentEdit, showModalDepartmentInfo } from "./modal.js";
+import { allCompanies, allDepartments, allUsers, filterDepartmentsCompany } from "../scripts/request.js"
+import { showModalDeleteUser, showModalDepartmentCreate, showModalDepartmentDelete, showModalDepartmentEdit, showModalDepartmentInfo, showModalEditUser } from "./modal.js";
 
 async function renderAllDepartments() {
     const departments = await allDepartments()
     const ul = document.querySelector('.list-departments')
+    ul.innerHTML = ""
 
     departments.forEach(element => {
+        ul.insertAdjacentHTML('beforeend', `
+        <li id="${element.uuid}" class="info-department flex flex-col justify-between">
+            <div class="div-info-department flex flex-col">
+                <h2>${element.name}</h2>
+                <p>${element.description}</p>
+                <p>${element.companies.name}</p>
+            </div>
+            <div class="div-icons flex align-center justify-center">
+                <div class="icon-eyes"></div>
+                <div id="icon-edit-department" class="icon-edit"></div>
+                <div id="icon-delete-department" class="icon-trash"></div>
+            </div>
+        </li>
+        `)
+    });
+    await showAllModal()
+}
+
+async function renderAllUsers() {
+    const users = await allUsers()
+    const departments = await allDepartments()
+    const ul = document.querySelector('.list-users')
+    ul.innerHTML = ""
+    users.forEach(element => {
+        if (element.username !== 'ADMIN') {
+
+            const li = document.createElement('li')
+            const divInfo = document.createElement('div')
+            const h2 = document.createElement('h2')
+            const pLevel = document.createElement('p')
+            const pCompany = document.createElement('p')
+            const divIcons = document.createElement('div')
+            const divEdit = document.createElement('div')
+            const divTrash = document.createElement('div')
+
+            li.classList = 'info-user flex flex-col justify-between'
+            li.id = `${element.uuid}`
+            divInfo.classList = 'div-info-user flex flex-col'
+            divIcons.classList = 'div-icons flex align-center justify-center'
+            divEdit.classList = 'icon-edit'
+            divEdit.id = 'icon-edit-user'
+            divTrash.classList = 'icon-trash'
+            divTrash.id = 'icon-trash-user'
+
+            h2.innerText = `${element.username}`
+            pLevel.innerText = `${element.professional_level}`
+            pCompany.innerText = 'Desempregado'
+
+            li.append(divInfo, divIcons)
+            divInfo.append(h2, pLevel, pCompany)
+            divIcons.append(divEdit, divTrash)
+            ul.append(li)
+
+            departments.forEach(department => {
+                if (department.uuid === element.department_uuid) {
+                    pCompany.innerText = department.companies.name
+                }
+            })
+
+            if (!element.professional_level) {
+                pLevel.innerText = 'júnior'
+            }
+        }
+    })
+}
+renderAllUsers()
+
+async function filterCompany() {
+    const companies = await allCompanies()
+    const select = document.querySelector('#select-all-companies')
+    const option = select.options[select.selectedIndex].value
+
+    companies.forEach(element => {
+        const options = document.createElement('option')
+        options.value = element.name
+        options.innerText = element.name
+        select.append(options)
+    })
+
+    select.addEventListener('change', async () => {
+        const options = select.options[select.selectedIndex].value
+        const companies = await allCompanies()
+    
+        if(options !== 'Todas') {
+            companies.forEach(async company => {
+                if(company.name === options) {
+                    const companyFilter = await filterDepartmentsCompany(company.uuid)
+                    renderFilterCompany(companyFilter)
+                }
+            })
+        } else {
+            await renderAllDepartments()
+        }
+    })
+
+    if(option === '0' || option === 'Todas') {
+        await renderAllDepartments()
+    } else {
+        const options = select.options[select.selectedIndex].value
+        const companies = await allCompanies()
+       
+        if(options !== 'Todas') {
+            companies.forEach(async company => {
+                if(company.name === options) {
+                    const companyFilter = await filterDepartmentsCompany(company.uuid)
+                    renderFilterCompany(companyFilter)
+                }
+            })
+        }
+    }
+}
+filterCompany()
+
+async function renderFilterCompany(array) {
+    const ul = document.querySelector('.list-departments')
+    ul.innerHTML = ""
+
+    array.forEach(element => {
         ul.insertAdjacentHTML('beforeend', `
         <li id="${element.uuid}" class="info-department flex flex-col justify-between">
             <div class="div-info-department flex flex-col">
@@ -21,72 +140,23 @@ async function renderAllDepartments() {
         </li>
         `)
     });
+    await showAllModal()
 }
-await renderAllDepartments()
 
-async function renderAllUsers() {
-    const users = await allUsers()
-    const departments = await allDepartments()
-    const ul = document.querySelector('.list-users')
+function showAllModal() {
+    showModalDepartmentInfo()
+    showModalDepartmentEdit()
+    showModalDepartmentDelete()
+    showModalEditUser()
+    showModalDeleteUser()
+}
 
-    users.forEach(element => {
-        if(element.username !== 'ADMIN') {
-            
-            const li = document.createElement('li')
-            const divInfo = document.createElement('div')
-            const h2 = document.createElement('h2')
-            const pLevel = document.createElement('p')
-            const pCompany = document.createElement('p')
-            const divIcons = document.createElement('div')
-            const divEdit = document.createElement('div')
-            const divTrash = document.createElement('div')
-    
-            li.classList = 'info-user flex flex-col justify-between'
-            divInfo.classList = 'div-info-user flex flex-col'
-            divIcons.classList = 'div-icons flex align-center justify-center'
-            divEdit.classList = 'icon-edit'
-            divTrash.classList = 'icon-trash'
-    
-            h2.innerText = `${element.username}`
-            pLevel.innerText = `${element.professional_level}`
-            pCompany.innerText = 'Desempregado'
-    
-            li.append(divInfo, divIcons)
-            divInfo.append(h2, pLevel, pCompany)
-            divIcons.append(divEdit, divTrash)
-            ul.append(li)
-
-            departments.forEach (department => {
-                if(department.uuid === element.department_uuid) {
-                    pCompany.innerText = department.companies.name
-                }
-            })
-
-            if(!element.professional_level) {
-                pLevel.innerText = 'júnior'
-            }
-        }
+function clearLocalStorage() {
+    const btnLogout = document.querySelector('#btn-logout')
+    btnLogout.addEventListener('click', () => {
+        localStorage.clear()
     })
 }
-renderAllUsers()
-
-async function filterCompany() {
-    const companies = await allCompanies()
-    const select = document.querySelector('#select-all-companies')
-
-    companies.forEach(element => {
-        const options = document.createElement('option')
-        options.value = element.name
-        options.innerText = element.name
-        select.append(options)
-    })
-    
-}
-filterCompany()
-
+clearLocalStorage()
 showModalDepartmentCreate()
-showModalDepartmentInfo()
-showModalDepartmentEdit()
-showModalDepartmentDelete()
-
-
+export { filterCompany, showAllModal, renderAllUsers}

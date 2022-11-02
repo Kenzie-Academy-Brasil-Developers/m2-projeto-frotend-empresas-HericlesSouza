@@ -10,7 +10,7 @@ dialog {
     border-radius: 10px;
 }
 
-.department-name, .department-create, .department-delete{
+.department-name, .department-create, .department-delete, .user-delete {
     font-family: 'Poppins';
     font-weight: var(--font-weight-1);
     font-size: var(--font-size-9);
@@ -18,8 +18,12 @@ dialog {
     color: var(--color-grey-100);
 }
 
-.department-delete {
+.department-delete, .user-delete {
     text-align: center;
+}
+
+#name-department, #name-user {
+    color: var(--color-brand-1);
 }
 
 .department-description {
@@ -92,7 +96,7 @@ dialog {
     padding-right: 43px;
 }
 
-#edit-department, #create-department {
+#edit-department, #create-department, #edit-user {
     width: 506px;
     height: max-content;
 }
@@ -101,6 +105,32 @@ dialog {
     padding: 0 30px;
 }
 
-#delete-department {
+#delete-department, #delete-user {
     height: max-content;
+}
+
+#edit-user>div {
+    padding: 23px 27px;
+}
+
+.edit-user {
+    font-family: 'Poppins';
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-9);
+    line-height: 54px;
+    color: var(--color-grey-100);
+    margin-bottom: 20px;
+}
+
+#form-edit-user {
+    gap: 13px;
+}
+
+#kindofwork, #professional_level {
+    padding: 17px;
+    background: var(--color-grey-800);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.5);
 }
