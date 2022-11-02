@@ -216,7 +216,7 @@ async function editDescriptionDepartment(id, body) {
             },
             body: JSON.stringify(body)
         })
-        
+
     } catch (err) {
         console.log(err)
     }
@@ -225,7 +225,7 @@ async function editDescriptionDepartment(id, body) {
 async function createDepartment(body) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}departments`, {
+        const request = await fetch(`${baseUrl}departments`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -234,10 +234,10 @@ async function createDepartment(body) {
             body: JSON.stringify(body)
         })
         const response = request.json()
-        if(request.ok) {
+        if (request.ok) {
             console.log('Tudo certo')
         } else {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
     } catch (err) {
         console.log(err)
@@ -247,7 +247,7 @@ async function createDepartment(body) {
 async function hireEmployee(body) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}departments/hire/`, {
+        const request = await fetch(`${baseUrl}departments/hire/`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -256,7 +256,7 @@ async function hireEmployee(body) {
             body: JSON.stringify(body)
         })
 
-        if(request.ok) {
+        if (request.ok) {
             console.log('Contratado!')
         }
     } catch (err) {
@@ -275,19 +275,19 @@ async function fireEmplyoee(user) {
             },
         })
 
-        if(request.ok) {
+        if (request.ok) {
             console.log('Demitido!')
         }
 
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
 
-async function deleteDepartment (id) {
+async function deleteDepartment(id) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}departments/${id}`, {
+        const request = await fetch(`${baseUrl}departments/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -295,12 +295,12 @@ async function deleteDepartment (id) {
             }
         })
 
-        if(request.ok) {
+        if (request.ok) {
             console.log('Departamento deletado!')
         } else {
-            throw new Error (request.error)
+            throw new Error(request.error)
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -308,7 +308,7 @@ async function deleteDepartment (id) {
 async function filterDepartmentsCompany(id) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}departments/${id}`, {
+        const request = await fetch(`${baseUrl}departments/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -317,13 +317,13 @@ async function filterDepartmentsCompany(id) {
         })
         const response = await request.json()
 
-        if(request.ok) {
+        if (request.ok) {
             console.log(response)
             return response
         } else {
-            throw new Error (request.error)
+            throw new Error(request.error)
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -331,7 +331,7 @@ async function filterDepartmentsCompany(id) {
 async function editEmplyoee(id, body) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}admin/update_user/${id}`, {
+        const request = await fetch(`${baseUrl}admin/update_user/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -340,13 +340,13 @@ async function editEmplyoee(id, body) {
             body: JSON.stringify(body)
         })
         
-        if(request.ok) {
+        if (request.ok) {
             console.log("Usuário editado!")
-            
+
         } else {
-            throw new Error (request.error)
+            throw new Error(request.error)
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -354,7 +354,7 @@ async function editEmplyoee(id, body) {
 async function deleteEmplyoee(id) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
-        const request = await fetch (`${baseUrl}admin/delete_user/${id}`, {
+        const request = await fetch(`${baseUrl}admin/delete_user/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -362,14 +362,83 @@ async function deleteEmplyoee(id) {
             },
         })
 
-        if(request.ok) {
+        if (request.ok) {
             console.log('Usuário deletado')
-            
+
         } else {
-            throw new Error (request.error)
+            throw new Error(request.error)
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
-export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee}
+
+async function getInfoUser() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}users/profile`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer: ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(request.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function getCompanyUser() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}users/departments`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer: ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(request.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function getCoworks() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}users/departments/coworkers`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer: ${token.token}`
+            }
+        })
+
+        const response = await request.json()
+
+        if (request.ok) {
+            return response
+        } else {
+            throw new Error(request.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee, getInfoUser, getCompanyUser, getCoworks }

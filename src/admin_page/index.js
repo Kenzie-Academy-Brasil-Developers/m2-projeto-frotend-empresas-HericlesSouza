@@ -22,7 +22,8 @@ async function renderAllDepartments() {
         </li>
         `)
     });
-    await showAllModal()
+    await showAllModalDepartment()
+    await showAllModalUser()
 }
 
 async function renderAllUsers() {
@@ -140,13 +141,17 @@ async function renderFilterCompany(array) {
         </li>
         `)
     });
-    await showAllModal()
+    await showAllModalDepartment()
+    await showAllModalUser()
 }
 
-function showAllModal() {
+function showAllModalDepartment() {
     showModalDepartmentInfo()
     showModalDepartmentEdit()
     showModalDepartmentDelete()
+}
+
+function showAllModalUser(){
     showModalEditUser()
     showModalDeleteUser()
 }
@@ -159,4 +164,4 @@ function clearLocalStorage() {
 }
 clearLocalStorage()
 showModalDepartmentCreate()
-export { filterCompany, showAllModal, renderAllUsers}
+export { filterCompany, showAllModalDepartment, renderAllUsers, showAllModalUser}

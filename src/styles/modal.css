@@ -126,7 +126,7 @@ dialog {
     gap: 13px;
 }
 
-#kindofwork, #professional_level {
+#kind_of_work, #professional_level {
     padding: 17px;
     background: var(--color-grey-800);
     border: 1px solid rgba(0, 0, 0, 0.3);
