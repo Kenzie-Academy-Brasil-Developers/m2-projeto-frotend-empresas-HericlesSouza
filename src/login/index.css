@@ -78,6 +78,12 @@ main>section {
     color: var(--color-grey-100);
 }
 
+.login>.paragraph-error {
+    font-size: var(--font-size-1);
+    line-height: 19px;
+    color: var(--color-error);
+}
+
 .login>.btn-register {
     display: block;
     width: 100%;

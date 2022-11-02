@@ -31,7 +31,7 @@ async function userRegister(body, paragraph, input) {
     }
 }
 
-async function login(body) {
+async function login(body, paragraph) {
     try {
         const request = await fetch(`${baseUrl}auth/login`, {
             method: "POST",
@@ -46,6 +46,8 @@ async function login(body) {
             localStorage.setItem('@token', (JSON.stringify(response)))
             validateUser()
         } else {
+            toast("errorToast", "Email ou senha inválido!")
+            paragraph.hidden = false
             throw new Error(response.error)
         }
 
