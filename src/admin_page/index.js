@@ -1,6 +1,19 @@
 import { allCompanies, allDepartments, allUsers, filterDepartmentsCompany } from "../scripts/request.js"
 import { showModalDeleteUser, showModalDepartmentCreate, showModalDepartmentDelete, showModalDepartmentEdit, showModalDepartmentInfo, showModalEditUser } from "./modal.js";
 
+async function checkedLogged() {
+    const token = localStorage.getItem('@token')
+    if(!token){
+        window.location.href = '../login/index.html'
+    }
+
+    const btnLogout = document.querySelector('.btn-login-burguer')
+    btnLogout.addEventListener('click', () => {
+        localStorage.clear()
+    })
+}
+checkedLogged()
+
 async function renderAllDepartments() {
     const departments = await allDepartments()
     const ul = document.querySelector('.list-departments')

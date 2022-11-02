@@ -441,4 +441,27 @@ async function getCoworks() {
         console.log(err)
     }
 }
-export { userRegister, login, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee, getInfoUser, getCompanyUser, getCoworks }
+
+async function editInfoUser(body) {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}users`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer: ${token.token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        if (request.ok) {
+            console.log('Informações atualizadas')
+            
+        } else {
+            throw new Error(request.error)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+export { userRegister, login, validateUser, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee, getInfoUser, getCompanyUser, getCoworks, editInfoUser }

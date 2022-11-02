@@ -116,3 +116,21 @@ header {
     line-height: 18px;
     color: var(--color-grey-100);
 }
+
+#edit-info-user>div>h2 {
+    margin-bottom: 20px;
+}
+
+#edit-info-user>div>h2 {
+    margin-top: 50px;
+}
+
+#edit-info-user>div>form {
+    gap: 13px;
+    margin-bottom: 35px;
+}
+
+#form-user-edit>.btn-edit {
+    display: block;
+    width: 100%;
+}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/modal.css">
     <link rel="stylesheet" href="../styles/inputs.css">
     <link rel="stylesheet" href="../styles/buttons.css">
     <link rel="stylesheet" href="../styles/reset.css">
@@ -48,12 +49,25 @@
                 <h1 class="title-company">Company Name - Department Name</h1>
             </header>
             <div class="flex align-center justify-center">
-                <ul class="flex cowork-list wrap">    
+                <ul class="flex cowork-list wrap">
                 </ul>
             </div>
         </section>
     </main>
+    <dialog id="edit-info-user" class="relative">
+        <button class="btn-close-modal-create align-self-end absolute">X</button>
+        <div>
+            <h2 class="user-edit">Editar Perfil</h2>
+            <form id="form-user-edit" class="flex flex-col">
+                <input id="username" type="text" placeholder="Seu nome">
+                <input id="email" type="text" placeholder="Seu e-mail">
+                <input id="password" type="password" placeholder="Sua senha">
+                <button type="submit" class="btn-edit">Editar perfil</button>
+            </form>
+        </div>
+    </dialog>
     <script type="module" src="index.js"></script>
+    <script type="module" src="modal.js"></script>
 </body>
 
 </html>

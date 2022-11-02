@@ -164,11 +164,12 @@ function showModalDepartmentInfo() {
 
             btnHire.addEventListener('click', hire)
             async function hire() {
+                const unemployedsBtn = await unemployedUsers()
                 const listUnemployed = document.querySelector('#user-select')
                 const emplyoee = listUnemployed.options[listUnemployed.selectedIndex].value
                 const body = {}
 
-                unemployeds.forEach(element => {
+                unemployedsBtn.forEach(element => {
                     if (element.username === emplyoee) {
                         body['user_uuid'] = element.uuid
                         body['department_uuid'] = department

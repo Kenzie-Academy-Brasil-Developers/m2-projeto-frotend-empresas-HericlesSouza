@@ -1,5 +1,16 @@
-import { allCompanies, allDepartments, getCompanyUser, getCoworks, getInfoUser } from "../scripts/request.js"
+import { getCompanyUser, getCoworks, getInfoUser } from "../scripts/request.js"
 
+async function checkedLogged() {
+    const token = localStorage.getItem('@token')
+    if(!token){
+        window.location.href = '../login/index.html'
+    }
+    const btnLogout = document.querySelector('.btn-login-burguer')
+    btnLogout.addEventListener('click', () => {
+        localStorage.clear()
+    })
+}
+checkedLogged()
 
 async function renderHeader() {
     const h1 = document.querySelector('.user-name')
@@ -12,7 +23,7 @@ async function renderHeader() {
     pEmail.innerText = `Email: ${user.email}`
 
     if (!user.kind_of_work) {
-        pWork.classList = 'hidden'
+        pWork.classList.add('hidden')
     } else {
         const typeWork = pWork.innerText = `${user.kind_of_work}`
         const typeWorkFormated = typeWork[0].toUpperCase() + typeWork.substring(1);
@@ -20,17 +31,14 @@ async function renderHeader() {
     }
 
     if (!user.professional_level) {
-        pLevel.innerText = 'Estagiário'
+        pLevel.classList.add('hidden')
     } else {
         const level = pLevel.innerText = `${user.professional_level}`
         const levelFormated = level[0].toUpperCase() + level.substring(1);
         pLevel.innerText = levelFormated
     }
     
-    if(user.department_uuid) {
-        renderNameCompany()
-        renderCoworks()
-    } else {
+    if(!user.department_uuid) {
         const displayUnemployed = document.querySelector('.user-without-company')
         const displayEmployed = document.querySelector('.info-company')
         displayUnemployed.classList.remove('hidden')
@@ -39,16 +47,27 @@ async function renderHeader() {
 }
 renderHeader()
 
+async function callFunctionRenders() {
+    const user = await getInfoUser()
+    if(user.department_uuid) {
+        renderNameCompany()
+        renderCoworks()
+    }
+}
+callFunctionRenders()
+
 async function renderNameCompany() {
     const company = document.querySelector('.title-company')
     const user = await getInfoUser()
     const userCompany = await getCompanyUser()
+
     userCompany.departments.forEach(element => {
         if (element.uuid === user.department_uuid) {
             company.innerText = `${userCompany.name} - ${element.name}`
         }
     })
 }
+
 
 async function renderCoworks() {
     const ul = document.querySelector('.cowork-list')
@@ -64,3 +83,5 @@ async function renderCoworks() {
         `)
     })
 }
+
+export{renderHeader}
