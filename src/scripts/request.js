@@ -2,7 +2,7 @@ import { toast } from "./toast.js"
 
 const baseUrl = "http://localhost:6278/"
 
-async function userRegister(body, paragraph) {
+async function userRegister(body, paragraph, input) {
     try {
         const request = await fetch(`${baseUrl}auth/register`, {
             method: "POST",
@@ -21,6 +21,7 @@ async function userRegister(body, paragraph) {
             }, 3000)
         } else {
             toast("errorToast", "Email já cadastrado!")
+            input.classList.add('error')
             paragraph.hidden = false
             throw new Error(response.error)
         }

@@ -7,8 +7,10 @@ function createUser() {
     const form = document.querySelector('.register')
     const elements = [...form.elements]
     const paragraph = document.querySelector('.paragraph-email')
-
-    form.addEventListener('submit', (event) => {
+    const inputEmail = document.querySelector('#email')
+    const btnRegister = document.querySelector('.btn-loading')
+    
+    form.addEventListener('submit', async (event) => {
         event.preventDefault()
         const body = {}
 
@@ -20,8 +22,11 @@ function createUser() {
                 body[element.id] = element.options[element.selectedIndex].value
             }
         })
+        inputEmail.classList.remove('error')
+        btnRegister.classList.add('button--loading')
         paragraph.hidden = true
-        userRegister(body, paragraph)
+        await userRegister(body, paragraph, inputEmail)
+        btnRegister.classList.remove('button--loading')
     })
 }
 createUser()
