@@ -321,7 +321,6 @@ async function filterDepartmentsCompany(id) {
         const response = await request.json()
 
         if (request.ok) {
-            console.log(response)
             return response
         } else {
             throw new Error(request.error)

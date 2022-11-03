@@ -131,6 +131,7 @@ async function renderUsersDepartment(nameDepartment) {
                             await renderUsersDepartment(nameDepartment)
                             await renderSelectUnemployed(await unemployedUsers())
                             await renderAllUsers()
+                            await showAllModalUser()
                             button.classList.remove('button--loading')
                         }
                     })
@@ -282,14 +283,14 @@ function showModalEditUser() {
     const buttonIcon = document.querySelectorAll('#icon-edit-user')
     const modal = document.querySelector("#edit-user")
     const buttonClose = document.querySelector('.btn-close-modal-edit-user')
-    
+    console.log('a')
     buttonIcon.forEach(element => {
         element.addEventListener('click', (event) => {
             const id = event.path[2].id
             const form = document.querySelector('#form-edit-user')
             const elements = [...form]
             const body = {}
-
+            console.log('oi')
             elements.forEach(element => {
                 if (element.tagName === 'SELECT') {
                     element.addEventListener('change', () => {
