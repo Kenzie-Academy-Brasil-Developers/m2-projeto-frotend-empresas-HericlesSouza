@@ -267,6 +267,7 @@ function showModalDepartmentDelete() {
                 await deleteDepartment(departmentId)
                 await filterCompany()
                 await renderAllUsers()
+                await showAllModalUser()
                 btnDelete.classList.remove('button--loading')
                 toastModal("successToast", "Departamento deletado com sucesso!", document.querySelector('body'))
                 modal.close()
