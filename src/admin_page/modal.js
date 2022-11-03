@@ -1,4 +1,5 @@
 import { allCompanies, allDepartments, allUsers, createDepartment, deleteDepartment, deleteEmplyoee, editDescriptionDepartment, editEmplyoee, fireEmplyoee, hireEmployee, unemployedUsers } from "../scripts/request.js"
+import { toastModal } from "../scripts/toast.js"
 import { filterCompany, renderAllUsers, showAllModalDepartment, showAllModalUser } from "./index.js"
 
 async function showModalDepartmentCreate() {
@@ -30,7 +31,7 @@ async function showModalDepartmentCreate() {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault()
-        
+        const btnCreate = document.querySelector('.btn-loading-create-department')
         const elements = [...form]
         const companies = await allCompanies()
         console.log(companies)
@@ -50,15 +51,16 @@ async function showModalDepartmentCreate() {
 
             if (element.tagName === 'BUTTON') {
                 element.addEventListener('click', () => {
-                    console.log('oi')
                     modal.close()
                 })
             }
         })
-        modal.close()
+        btnCreate.classList.add('button--loading')
         await createDepartment(body)
         await filterCompany()
-
+        btnCreate.classList.remove('button--loading')
+        toastModal("successToast", "Departamento criado com sucesso!", document.querySelector('body'))
+        modal.close()
     })
 
     buttonClose.addEventListener('click', () => {
@@ -100,18 +102,20 @@ async function renderUsersDepartment(nameDepartment) {
                 const pLevel = document.createElement('p')
                 const pCompany = document.createElement('p')
                 const button = document.createElement('button')
+                const span = document.createElement('span')
 
                 li.classList = 'employee flex flex-col'
                 h2.classList = 'name'
                 pLevel.classList = 'profissional_level'
                 pCompany.classList = 'company-name'
-                button.classList = 'dismiss align-self-center'
+                button.classList = 'dismiss align-self-center relative'
                 h2.id = `${user.uuid}`
                 h2.innerText = `${user.username}`
                 pLevel.innerText = `${user.professional_level}`
                 pCompany.innerText = `${department.companies.name}`
-                button.innerText = 'Desligar'
-
+                span.innerText = 'Desligar'
+                
+                button.append(span)
                 li.append(h2, pLevel, pCompany, button)
                 listEmployees.append(li)
 
@@ -123,10 +127,12 @@ async function renderUsersDepartment(nameDepartment) {
                     const users = await allUsers()
                     users.forEach(async user => {
                         if (user.uuid === h2.id) {
+                            button.classList.add('button--loading')
                             await fireEmplyoee(user.uuid)
                             await renderUsersDepartment(nameDepartment)
                             await renderSelectUnemployed(await unemployedUsers())
                             await renderAllUsers()
+                            button.classList.remove('button--loading')
                         }
                     })
                 })
@@ -136,7 +142,7 @@ async function renderUsersDepartment(nameDepartment) {
     return listEmployees
 }
 
-function showModalDepartmentInfo() {
+async function showModalDepartmentInfo() {
     const buttonIcon = document.querySelectorAll('.icon-eyes')
     const modal = document.querySelector('#info-department')
     const buttonClose = document.querySelector('.btn-close-modal')
@@ -176,11 +182,13 @@ function showModalDepartmentInfo() {
                         body['department_uuid'] = department
                     }
                 })
+                btnHire.classList.add('button--loading')
                 await hireEmployee(body)
                 await renderUsersDepartment(department)
                 await renderSelectUnemployed(await unemployedUsers())
                 await renderAllUsers()
                 await showAllModalUser()
+                btnHire.classList.remove('button--loading')
             }
 
             await renderUsersDepartment(department)
@@ -195,14 +203,14 @@ function showModalDepartmentInfo() {
 
 }
 
-function showModalDepartmentEdit() {
+async function showModalDepartmentEdit() {
     const buttonIcon = document.querySelectorAll('#icon-edit-department')
     const modal = document.querySelector("#edit-department")
     const buttonClose = document.querySelector('.btn-close-modal-edit')
     const descriptionModal = document.querySelector('#department-description')
     const buttonSave = document.querySelector('#btn-save')
-
-    buttonIcon.forEach(element => {
+    
+    buttonIcon.forEach(element => { 
         element.addEventListener('click', async (event) => {
             const departments = await allDepartments()
             const department = event.path[2].id
@@ -218,9 +226,11 @@ function showModalDepartmentEdit() {
                 const body = {
                     description: descriptionModal.value
                 }
+                buttonSave.classList.add('button--loading')
                 await editDescriptionDepartment(department, body)
                 await filterCompany()
-
+                buttonSave.classList.remove('button--loading')
+                toastModal("successToast", "Departamento editado com sucesso!", document.querySelector('body'))
                 modal.close()
             }, { once: true })
 
@@ -253,10 +263,12 @@ function showModalDepartmentDelete() {
 
             const btnDelete = document.querySelector('.btn-delete-employees-confirm')
             btnDelete.addEventListener('click', async () => {
+                btnDelete.classList.add('button--loading')
                 await deleteDepartment(departmentId)
                 await filterCompany()
                 await renderAllUsers()
-
+                btnDelete.classList.remove('button--loading')
+                toastModal("successToast", "Departamento deletado com sucesso!", document.querySelector('body'))
                 modal.close()
             }, { once: true })
         })
@@ -271,7 +283,7 @@ function showModalEditUser() {
     const buttonIcon = document.querySelectorAll('#icon-edit-user')
     const modal = document.querySelector("#edit-user")
     const buttonClose = document.querySelector('.btn-close-modal-edit-user')
-
+    
     buttonIcon.forEach(element => {
         element.addEventListener('click', (event) => {
             const id = event.path[2].id
@@ -290,10 +302,13 @@ function showModalEditUser() {
                 if (element.tagName === 'BUTTON') {
                     element.addEventListener('click', async (event) => {
                         event.preventDefault()
+                        element.classList.add('button--loading')
                         await editEmplyoee(id, body)
                         await renderAllUsers()
                         await showAllModalDepartment()
                         await showAllModalUser()
+                        element.classList.remove('button--loading')
+                        toastModal("successToast", "Usuário editado com sucesso!", document.querySelector('body'))
                         modal.close()
                     }, { once: true })
                 }
@@ -324,10 +339,13 @@ function showModalDeleteUser() {
             const buttonDelete = document.querySelector('.btn-delete-user-confirm')
 
             buttonDelete.addEventListener('click', async () => {
+                buttonDelete.classList.add('button--loading')
                 await deleteEmplyoee(id)
                 await renderAllUsers()
                 await showAllModalDepartment()
                 await showAllModalUser()
+                buttonDelete.classList.remove('button--loading')
+                toastModal("successToast", "Usuário deletado com sucesso!", document.querySelector('body'))
                 modal.close()
             }, { once: true })
             modal.showModal()

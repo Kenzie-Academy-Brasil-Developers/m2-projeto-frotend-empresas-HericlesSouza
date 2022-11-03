@@ -1,4 +1,4 @@
-import { toast } from "./toast.js"
+import { toast, toastModal } from "./toast.js"
 
 const baseUrl = "http://localhost:6278/"
 
@@ -219,7 +219,10 @@ async function editDescriptionDepartment(id, body) {
             },
             body: JSON.stringify(body)
         })
-
+        const response = await request.json()
+        if (!request.ok) {
+            throw new Error (response.error)
+        }
     } catch (err) {
         console.log(err)
     }
@@ -237,9 +240,7 @@ async function createDepartment(body) {
             body: JSON.stringify(body)
         })
         const response = request.json()
-        if (request.ok) {
-            console.log('Tudo certo')
-        } else {
+        if (!request.ok) {
             throw new Error(response.error)
         }
     } catch (err) {
@@ -258,9 +259,9 @@ async function hireEmployee(body) {
             },
             body: JSON.stringify(body)
         })
-
-        if (request.ok) {
-            console.log('Contratado!')
+        const response = await request.json()
+        if (!request.ok) {
+            throw new Error (console.log(response.error))
         }
     } catch (err) {
         console.log(err)
@@ -277,9 +278,10 @@ async function fireEmplyoee(user) {
                 "Authorization": `Bearer: ${token.token}`
             },
         })
+        const response = await request.json()
 
-        if (request.ok) {
-            console.log('Demitido!')
+        if (!request.ok) {
+            throw new Error (response.error)
         }
 
     } catch (err) {
@@ -298,9 +300,7 @@ async function deleteDepartment(id) {
             }
         })
 
-        if (request.ok) {
-            console.log('Departamento deletado!')
-        } else {
+        if (!request.ok) {
             throw new Error(request.error)
         }
     } catch (err) {
@@ -342,13 +342,10 @@ async function editEmplyoee(id, body) {
             },
             body: JSON.stringify(body)
         })
-        
-        if (request.ok) {
-            console.log("Usuário editado!")
-
-        } else {
-            throw new Error(request.error)
-        }
+        const response = request.json()
+        if (!request.ok) {
+            throw new Error (response.error)
+        } 
     } catch (err) {
         console.log(err)
     }
@@ -365,12 +362,9 @@ async function deleteEmplyoee(id) {
             },
         })
 
-        if (request.ok) {
-            console.log('Usuário deletado')
-
-        } else {
+        if (!request.ok) {
             throw new Error(request.error)
-        }
+        } 
     } catch (err) {
         console.log(err)
     }
@@ -459,7 +453,7 @@ async function editInfoUser(body) {
 
         if (request.ok) {
             console.log('Informações atualizadas')
-            
+
         } else {
             throw new Error(request.error)
         }
