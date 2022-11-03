@@ -134,3 +134,9 @@ header {
     display: block;
     width: 100%;
 }
+
+.paragraph-email {
+    font-size: var(--font-size-1);
+    line-height: 19px;
+    color: var(--color-error);
+}
