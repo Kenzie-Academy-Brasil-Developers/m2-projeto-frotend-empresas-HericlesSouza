@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+.body-toast {
+    position: absolute;
+    min-height: 100%;
+}
 header {
     padding: 22.75px 14px;
     background: var(--color-grey-800);

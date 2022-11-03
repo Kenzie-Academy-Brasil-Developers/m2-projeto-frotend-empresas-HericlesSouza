@@ -17,9 +17,9 @@
     <title>Kenzie Empresas</title>
 </head>
 
-<body>
-    <header>
-        <div class="content-header flex container justify-between">
+<body class="relative">
+    <header class="relative">
+        <div class="content-header flex container justify-between relative">
             <figure class="flex justify-between align-center">
                 <div class="flex align-center">
                     <img id="circle" src="../assets/circle-kenzie.png">
@@ -59,6 +59,7 @@
     </main>
     <dialog id="info-department">
         <div class="flex justify-end">
+            <div class="modal-header-info flex container justify-between relative"></div>
             <button class="btn-close-modal ">X</button>
         </div>
         <h2 class="department-name">Nome do departamento</h2>
@@ -71,7 +72,9 @@
                 <select id="user-select">
                     <option hidden value="0">Selecionar usuário</option>
                 </select>
-                <button class="hire-btn">Contratar</button>
+                <button class="hire-btn relative">
+                    <span class="button__text">Contratar</span>
+                </button>
             </div>
         </div>
         <ul class="flex list-employees">
@@ -87,7 +90,7 @@
                 <select required id="company_uuid">
                     <option hidden value="0">Selecionar empresa</option>
                 </select>
-                <button type="submit" class="btn-register btn-loading relative">
+                <button type="submit" class="btn-register btn-loading-create-department relative">
                     <span class="button__text">Criar o departamento</span>
                 </button>
             </form>
@@ -101,18 +104,23 @@
             <h2 class="department-delete">Realmente deseja deletar o Departamento <span id="name-department">NOME</span>
                 e demitir seus funcionários?
             </h2>
-            <button class="btn-delete-employees-confirm">Confirmar</button>
+            <button class="btn-delete-employees-confirm relative">
+                <span class="button__text">Confirmar</span>
+            </button>
         </div>
     </dialog>
     <dialog id="edit-department" class="relative">
         <div class="flex justify-end">
+            
             <button class="btn-close-modal-edit align-self-end">X</button>
         </div>
         <div>
             <h2 class="department-create">Editar Departamento</h2>
             <form class="flex flex-col">
                 <textarea name="" id="department-description"></textarea>
-                <button type="submit" id="btn-save" class="btn-register">Salvar alterações</button>
+                <button type="submit" id="btn-save" class="btn-register relative">
+                    <span class="button__text">Salvar alterações</span>
+                </button>
             </form>
         </div>
     </dialog>
@@ -134,7 +142,9 @@
                     <option value="pleno">Pleno</option>
                     <option value="sênior">Senior</option>
                 </select>
-                <button type="submit" class="btn-register">Editar</button>
+                <button type="submit" class="btn-register relative">
+                    <span class="button__text">Editar</span>
+                </button>
             </form>
         </div>
     </dialog>
@@ -145,7 +155,9 @@
         <div class="flex align-center justify-center flex-col">
             <h2 class="user-delete">Realmente deseja remover o usuário <span id="name-user">NOME</span>?
             </h2>
-            <button class="btn-delete-user-confirm">Deletar</button>
+            <button class="btn-delete-user-confirm relative">
+                <span class="button__text">Deletar</span>
+            </button>
         </div>
     </dialog>
     <script type="module" src="index.js"></script>

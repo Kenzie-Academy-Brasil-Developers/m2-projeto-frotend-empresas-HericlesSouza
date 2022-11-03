@@ -133,4 +133,5 @@ dialog {
     font-size: var(--font-size-2);
     line-height: 21px;
     color: rgba(0, 0, 0, 0.5);
+    outline-color: var(--color-brand-1);
 }

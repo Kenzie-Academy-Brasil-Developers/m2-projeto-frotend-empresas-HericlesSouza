@@ -148,8 +148,8 @@ async function renderFilterCompany(array) {
             </div>
             <div class="div-icons flex align-center justify-center">
                 <div class="icon-eyes"></div>
-                <div class="icon-edit"></div>
-                <div class="icon-trash"></div>
+                <div id="icon-edit-department" class="icon-edit"></div>
+                <div id="icon-delete-department" class="icon-trash"></div>
             </div>
         </li>
         `)
@@ -158,13 +158,13 @@ async function renderFilterCompany(array) {
     await showAllModalUser()
 }
 
-function showAllModalDepartment() {
-    showModalDepartmentInfo()
+async function showAllModalDepartment() {
     showModalDepartmentEdit()
+    showModalDepartmentInfo()
     showModalDepartmentDelete()
 }
 
-function showAllModalUser(){
+async function showAllModalUser(){
     showModalEditUser()
     showModalDeleteUser()
 }
