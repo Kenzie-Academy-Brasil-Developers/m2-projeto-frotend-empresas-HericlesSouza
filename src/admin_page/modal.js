@@ -35,7 +35,7 @@ async function showModalDepartmentCreate() {
         const elements = [...form]
         const companies = await allCompanies()
         const body = {}
-
+        console.log('oi')
         elements.forEach(element => {
             if (element.tagName === 'INPUT') {
                 body[element.id] = element.value

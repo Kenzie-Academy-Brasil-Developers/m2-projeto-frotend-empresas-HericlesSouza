@@ -92,29 +92,31 @@ async function filterCompany() {
     const companies = await allCompanies()
     const select = document.querySelector('#select-all-companies')
     const option = select.options[select.selectedIndex].value
-
-    companies.forEach(element => {
-        const options = document.createElement('option')
-        options.value = element.name
-        options.innerText = element.name
-        select.append(options)
-    })
-
-    select.addEventListener('change', async () => {
-        const options = select.options[select.selectedIndex].value
-        const companies = await allCompanies()
     
-        if(options !== 'Todas') {
-            companies.forEach(async company => {
-                if(company.name === options) {
-                    const companyFilter = await filterDepartmentsCompany(company.uuid)
-                    renderFilterCompany(companyFilter)
-                }
-            })
-        } else {
-            await renderAllDepartments()
-        }
-    })
+    if(select.length <= 2) {
+        companies.forEach(element => {
+            const options = document.createElement('option')
+            options.value = element.name
+            options.innerText = element.name
+            select.append(options)
+        })
+    
+        select.addEventListener('change', async () => {
+            const options = select.options[select.selectedIndex].value
+            const companies = await allCompanies()
+        
+            if(options !== 'Todas') {
+                companies.forEach(async company => {
+                    if(company.name === options) {
+                        const companyFilter = await filterDepartmentsCompany(company.uuid)
+                        renderFilterCompany(companyFilter)
+                    }
+                })
+            } else {
+                await renderAllDepartments()
+            }
+        })
+    } 
 
     if(option === '0' || option === 'Todas') {
         await renderAllDepartments()
