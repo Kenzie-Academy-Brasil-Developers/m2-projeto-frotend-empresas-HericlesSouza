@@ -1,11 +1,35 @@
 :root {
     --color-brand-1: #4200FF;
-    --color-grey-800: #FFFFFF;
     --color-grey-100: #000000;
+    --color-grey-300: #A8A8A8;
+    --color-grey-700: #F8F8F8;
+    --color-grey-800: #FFFFFF;
     --color-error: #CE4646;
     --color-success: #4BA036;
+    --color-hover-1: #f2f8fb;
+    --color-hover-2: #0000ae;
+    --color-hover-3: #008000;
+    --color-hover-4: #DB3C58;
+    
+    --font-weight-1: 700;
+    --font-weight-2: 600;
+    --font-weight-3: 500;
+
+    --font-size-1: 1rem;
+    --font-size-2: 1.125rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1.5rem;
+    --font-size-5: 2rem;
+    --font-size-6: 2.5rem;
+    --font-size-7: 1.875rem;
+    --font-size-8: 1.375rem;
+    --font-size-9: 2.25rem;
 }
 
 .container {
     width: 100vw;
+}
+
+.hidden {
+    display: none;
 }

@@ -1,0 +1,268 @@
+.btn-select-sector {
+    font-family: 'Poppins', sans-serif;
+    margin: 23px 0 0 0;
+    padding: 13px 0;
+    width: 100%;
+    font-size: var(--font-size-2);
+    line-height: 1.688rem;
+    text-align: center;
+    color: var(--color-grey-800);
+    background-color: var(--color-brand-1);
+    border: none;
+    cursor: pointer;
+}
+
+.sector-company {
+    padding: 6px 16px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-brand-1);
+    border: 1px solid var(--color-brand-1);
+    background-color: transparent;
+    border-radius: 255px;
+    cursor: pointer;
+}
+
+.btn-login {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-brand-1);
+    background-color: transparent;
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    margin-right: 11px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: var(--color-hover-1);
+}
+
+.btn-register, .btn-edit {
+    display: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-1);
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.btn-register:hover, .btn-edit:hover {
+    background-color: var(--color-hover-2);
+}
+
+.btn-login-burguer {
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-brand-1);
+    background-color: transparent;
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    margin: 0 0.688rem 0 0.813rem;
+    cursor: pointer;
+}
+
+.btn-login-burguer:hover {
+    background-color: var(--color-hover-1);
+}
+
+.btn-register-burguer {
+    font-family: 'Roboto', sans-serif;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 21px;
+    text-align: center;
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-1);
+    border: 1px solid var(--color-brand-1);
+    width: 142px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.btn-close-menu {
+    border: none;
+    background-color: transparent;
+    font-size: var(--font-size-7);
+    cursor: pointer;
+}
+
+.btn-create-department {
+    padding: 0 16px;
+    width: 150px;
+    height: 48px;
+    background: var(--color-brand-1);
+    border: transparent;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    color: var(--color-grey-800);
+    cursor: pointer;
+}
+
+.btn-create-department:hover {
+    background-color: var(--color-hover-2);
+}
+
+.icon-eyes {
+    width: 44px;
+    height: 30px;
+    background-image: url(../assets/eyes.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.icon-edit {
+    width: 27.49px;
+    height: 27.49px;
+    background-image: url(../assets/edit-no-hover.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.icon-edit:hover {
+    background-image: url(../assets/edit-hover.png);
+}
+
+.icon-trash {
+    width: 22.67px;
+    height: 25.5px;
+    background-image: url(../assets/trash.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#btn-logout {
+    margin: 0;
+    cursor: pointer;
+}
+
+#btn-logout:hover {
+    background-color: var(--color-hover-1);
+}
+
+.btn-close-modal, .btn-close-modal-edit, .btn-close-modal-delete, .btn-close-modal-create, .btn-close-modal-edit-user, .btn-close-modal-delete-user {
+    width: max-content;
+    font-size: var(--font-size-4);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    right: 11px;
+    top: 14px;
+}
+
+.hire-btn {
+    margin-top: 14px;
+    align-self: flex-end;
+    width: max-content;
+    padding: 13px 30px;
+    background: var(--color-success);
+    border: transparent;
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    color: var(--color-grey-800);
+    cursor: pointer;
+}
+
+.hire-btn:hover {
+    background-color: var(--color-hover-3);
+}
+
+.dismiss {
+    margin-top: 15px;
+    width: max-content;
+    padding: 13px 41px;
+    border: 1px solid var(--color-error);
+    font-weight: var(--font-weight-1);
+    background-color: transparent;
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    color: var(--color-error);
+    cursor: pointer;
+}
+
+.dismiss:hover {
+    color: var(--color-grey-800);
+    background-color: var(--color-hover-4);
+    border: 1px solid var(--color-hover-4);
+}
+
+.btn-delete-employees-confirm, .btn-delete-user-confirm {
+    margin-bottom: 66px;
+    margin-top: 40px;
+    width: 422px;
+    height: 48px;
+    background: var(--color-success);
+    font-weight: var(--font-weight-1);
+    font-size: var(--font-size-2);
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: transparent;
+    color: var(--color-grey-800);
+}
+
+.btn-delete-employees-confirm:hover, .btn-delete-user-confirm:hover {
+    background-color: var(--color-hover-3);
+}
+
+#btn-save {
+    margin-top: 14px;
+    margin-bottom: 42px;
+    width: 100%;
+    display: block;
+}
+
+.button__text {
+    transition: all 0.2s;
+}
+
+.button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.button--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}

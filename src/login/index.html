@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../styles/toast.css">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/positioning.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Login</title>
+</head>
+<body>
+    <header class="header">
+        <div class="content-header flex container relative">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+                <img class="img-burguer" src="../assets/burguer.png" alt="menu">
+            </figure>
+            <div class="flex">
+                <button onclick="window.location.href = '../index.html'" class="btn-login">Home</button>
+                <button onclick="window.location.href = '../register/index.html'" class="btn-register">Cadastro</button>
+            </div>
+        </div>
+        <div hidden class="menu-burguer absolute">
+            <div class="flex justify-between align-center container">
+                <figure class="flex align-center">
+                    <img id="circle" src="../assets/circle-kenzie.png">
+                    <img src="../assets/Kenzie Empresas.png" alt="name kenzie">
+                </figure>
+                <button class="btn-close-menu">X</button>
+            </div>
+            <div class="div-buttons flex align-center justify-between">
+                <button onclick="window.location.href = '../index.html'" class="btn-login-burguer">Home</button>
+                <button onclick="window.location.href = '../register/index.html'"
+                    class="btn-register-burguer">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main class="flex justify-center background-image">
+        <section>
+            <form class="login flex flex-col">
+                <div class="header-form">
+                    <h2>Login</h2>
+                    <p>Preencha os campos para realizar login</p>
+                </div>
+                <input id="email" type="email" placeholder="Seu e-mail" required>
+                <input id="password" type="password" placeholder="Sua senha" required>
+                <p hidden class="paragraph-error">Email ou senha inválido!</p>
+                <button type="submit" class="btn-register btn-loading relative">
+                    <span class="button__text">Login</span>
+                </button>
+                <p>ou</p>
+                <button onclick="window.location.href = '../register/index.html'" class="btn-login">Cadastrar-se</button>
+            </form>
+        </section>
+    </main>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

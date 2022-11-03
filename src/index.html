@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/scrollbar.css">
+    <link rel="stylesheet" href="./styles/select.css">
+    <link rel="stylesheet" href="./styles/buttons.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/positioning.css">
+    <link rel="stylesheet" href="./styles/globalStyles.css">
+    <link rel="stylesheet" href="./home/index.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <header class="header relative">
+        <div class="content-header flex container">
+            <figure class="flex justify-between align-center">
+                <div class="flex align-center">
+                    <img id="circle" src="./assets/circle-kenzie.png">
+                    <img src="./assets/Kenzie Empresas.png" alt="name kenzie">
+                </div>
+                <img class="img-burguer" src="./assets/burguer.png" alt="menu">
+            </figure>
+            <div class="flex">
+                <button onclick="window.location.href = './login/index.html'" class="btn-login">Login</button>
+                <button onclick="window.location.href = './register/index.html'" class="btn-register">Cadastro</button>
+            </div>
+        </div>
+        <div hidden class="menu-burguer absolute">
+            <div class="flex justify-between align-center container">
+                <figure class="flex align-center">
+                    <img id="circle" src="./assets/circle-kenzie.png">
+                    <img src="./assets/Kenzie Empresas.png" alt="name kenzie">
+                </figure>
+                <button class="btn-close-menu">X</button>
+            </div>
+            <div class="div-buttons flex align-center justify-between">
+                <button onclick="window.location.href = './login/index.html'" class="btn-login-burguer">Login</button>
+                <button onclick="window.location.href = './register/index.html'"
+                    class="btn-register-burguer">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <figure>
+            <img class="photo-home-page" src="./assets/photo-home-page.png" alt="">
+        </figure>
+        <section class="flex flex-col">
+            <select class="sector-select relative">
+                <option hidden value="Selecionar setor">Selecionar setor</option>
+                <option value="Todos os setores">Todos os setores</option>
+            </select>
+            <div class="companies">
+                <ul class="flex list-companies">
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./home/index.js"></script>
+</body>
+
+</html>
