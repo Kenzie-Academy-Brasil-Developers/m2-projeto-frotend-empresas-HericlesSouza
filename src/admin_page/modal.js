@@ -34,7 +34,6 @@ async function showModalDepartmentCreate() {
         const btnCreate = document.querySelector('.btn-loading-create-department')
         const elements = [...form]
         const companies = await allCompanies()
-        console.log(companies)
         const body = {}
 
         elements.forEach(element => {

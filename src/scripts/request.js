@@ -261,7 +261,7 @@ async function hireEmployee(body) {
         })
         const response = await request.json()
         if (!request.ok) {
-            throw new Error (console.log(response.error))
+            throw new Error (response.error)
         }
     } catch (err) {
         console.log(err)
