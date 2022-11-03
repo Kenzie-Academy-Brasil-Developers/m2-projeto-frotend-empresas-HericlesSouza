@@ -17,7 +17,7 @@
     <title>Kenzie Empresas</title>
 </head>
 
-<body>
+<body class="relative">
     <header>
         <div class="content-header flex container justify-between">
             <figure class="flex justify-between align-center">
@@ -63,8 +63,11 @@
             <form id="form-user-edit" class="flex flex-col">
                 <input id="username" type="text" placeholder="Seu nome">
                 <input id="email" type="text" placeholder="Seu e-mail">
+                <p hidden class="paragraph-email" >Email já cadastrado!</p>
                 <input id="password" type="password" placeholder="Sua senha">
-                <button type="submit" class="btn-edit">Editar perfil</button>
+                <button type="submit" class="btn-edit relative">
+                    <span class="button__text">Editar perfil</span>
+                </button>
             </form>
         </div>
     </dialog>

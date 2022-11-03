@@ -439,7 +439,7 @@ async function getCoworks() {
     }
 }
 
-async function editInfoUser(body) {
+async function editInfoUser(body, element, paragraph) {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
         const request = await fetch(`${baseUrl}users`, {
@@ -452,9 +452,10 @@ async function editInfoUser(body) {
         })
 
         if (request.ok) {
-            console.log('Informações atualizadas')
-
+            toastModal("successToast", "Usuário editado com sucesso!", element)
         } else {
+            toastModal("errorToast", "Email já cadastrado!", element)
+            paragraph.hidden = false
             throw new Error(request.error)
         }
     } catch (err) {

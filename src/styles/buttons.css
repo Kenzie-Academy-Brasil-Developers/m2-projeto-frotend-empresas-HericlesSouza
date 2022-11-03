@@ -78,6 +78,10 @@
     cursor: pointer;
 }
 
+.btn-login-burguer:hover {
+    background-color: var(--color-hover-1);
+}
+
 .btn-register-burguer {
     font-family: 'Roboto', sans-serif;
     font-weight: var(--font-weight-1);

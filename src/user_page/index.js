@@ -2,7 +2,7 @@ import { getCompanyUser, getCoworks, getInfoUser } from "../scripts/request.js"
 
 async function checkedLogged() {
     const token = localStorage.getItem('@token')
-    if(!token){
+    if (!token) {
         window.location.href = '../login/index.html'
     }
     const btnLogout = document.querySelector('.btn-login-burguer')
@@ -37,8 +37,8 @@ async function renderHeader() {
         const levelFormated = level[0].toUpperCase() + level.substring(1);
         pLevel.innerText = levelFormated
     }
-    
-    if(!user.department_uuid) {
+
+    if (!user.department_uuid) {
         const displayUnemployed = document.querySelector('.user-without-company')
         const displayEmployed = document.querySelector('.info-company')
         displayUnemployed.classList.remove('hidden')
@@ -49,7 +49,7 @@ renderHeader()
 
 async function callFunctionRenders() {
     const user = await getInfoUser()
-    if(user.department_uuid) {
+    if (user.department_uuid) {
         renderNameCompany()
         renderCoworks()
     }
@@ -71,17 +71,20 @@ async function renderNameCompany() {
 
 async function renderCoworks() {
     const ul = document.querySelector('.cowork-list')
+    const user = await getInfoUser()
     const departmentCoworks = await getCoworks()
     const usersCoworks = departmentCoworks[0].users
-    
-    usersCoworks.forEach(user => {
-        ul.insertAdjacentHTML('beforeend', `
-            <li class="info-cowork">
-                <h2>${user.username}</h2>
-                <p>${user.professional_level}</p>
-            </li>
-        `)
+
+    usersCoworks.forEach(element => {
+        if (user.uuid !== element.uuid) {
+            ul.insertAdjacentHTML('beforeend', `
+                    <li class="info-cowork">
+                        <h2>${element.username}</h2>
+                        <p>${element.professional_level}</p>
+                    </li>
+                `)
+        }
     })
 }
 
-export{renderHeader}
+export { renderHeader }
