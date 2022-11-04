@@ -56,6 +56,58 @@ async function login(body, paragraph) {
     }
 }
 
+async function userAdmin() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}auth/validate_user`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token.token}`,
+            }
+        })
+        const response = await request.json()
+
+        if (request.ok) {
+            if (!response.is_admin && token) {
+                window.location.assign("../user_page/index.html")
+            }
+
+        } else {
+            throw new Error(response.error)
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function userNormal() {
+    const token = JSON.parse(localStorage.getItem('@token'))
+    try {
+        const request = await fetch(`${baseUrl}auth/validate_user`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token.token}`,
+            }
+        })
+        const response = await request.json()
+
+        if (request.ok) {
+            if (response.is_admin && token) {
+                window.location.assign("../admin_page/index.html")
+            }
+
+        } else {
+            throw new Error(response.error)
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 async function validateUser() {
     const token = JSON.parse(localStorage.getItem('@token'))
     try {
@@ -221,7 +273,7 @@ async function editDescriptionDepartment(id, body) {
         })
         const response = await request.json()
         if (!request.ok) {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
     } catch (err) {
         console.log(err)
@@ -261,7 +313,7 @@ async function hireEmployee(body) {
         })
         const response = await request.json()
         if (!request.ok) {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
     } catch (err) {
         console.log(err)
@@ -281,7 +333,7 @@ async function fireEmplyoee(user) {
         const response = await request.json()
 
         if (!request.ok) {
-            throw new Error (response.error)
+            throw new Error(response.error)
         }
 
     } catch (err) {
@@ -343,8 +395,8 @@ async function editEmplyoee(id, body) {
         })
         const response = request.json()
         if (!request.ok) {
-            throw new Error (response.error)
-        } 
+            throw new Error(response.error)
+        }
     } catch (err) {
         console.log(err)
     }
@@ -363,7 +415,7 @@ async function deleteEmplyoee(id) {
 
         if (!request.ok) {
             throw new Error(request.error)
-        } 
+        }
     } catch (err) {
         console.log(err)
     }
@@ -461,4 +513,4 @@ async function editInfoUser(body, element, paragraph) {
         console.log(err)
     }
 }
-export { userRegister, login, validateUser, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee, getInfoUser, getCompanyUser, getCoworks, editInfoUser }
+export { userRegister, login, validateUser, allCompanies, allSectors, filterSector, allDepartments, allUsers, unemployedUsers, editDescriptionDepartment, createDepartment, hireEmployee, fireEmplyoee, deleteDepartment, filterDepartmentsCompany, editEmplyoee, deleteEmplyoee, getInfoUser, getCompanyUser, getCoworks, editInfoUser, userAdmin, userNormal}

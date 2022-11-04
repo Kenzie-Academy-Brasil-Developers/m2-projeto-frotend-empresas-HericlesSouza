@@ -22,6 +22,7 @@ function createUser() {
                 body[element.id] = element.options[element.selectedIndex].value
             }
         })
+        
         inputEmail.classList.remove('error')
         btnRegister.classList.add('button--loading')
         paragraph.hidden = true

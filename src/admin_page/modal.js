@@ -113,7 +113,7 @@ async function renderUsersDepartment(nameDepartment) {
                 pLevel.innerText = `${user.professional_level}`
                 pCompany.innerText = `${department.companies.name}`
                 span.innerText = 'Desligar'
-                
+
                 button.append(span)
                 li.append(h2, pLevel, pCompany, button)
                 listEmployees.append(li)
@@ -209,8 +209,8 @@ async function showModalDepartmentEdit() {
     const buttonClose = document.querySelector('.btn-close-modal-edit')
     const descriptionModal = document.querySelector('#department-description')
     const buttonSave = document.querySelector('#btn-save')
-    
-    buttonIcon.forEach(element => { 
+
+    buttonIcon.forEach(element => {
         element.addEventListener('click', async (event) => {
             const departments = await allDepartments()
             const department = event.path[2].id
@@ -284,14 +284,14 @@ function showModalEditUser() {
     const buttonIcon = document.querySelectorAll('#icon-edit-user')
     const modal = document.querySelector("#edit-user")
     const buttonClose = document.querySelector('.btn-close-modal-edit-user')
-    
+
     buttonIcon.forEach(element => {
         element.addEventListener('click', (event) => {
             const id = event.path[2].id
             const form = document.querySelector('#form-edit-user')
             const elements = [...form]
             const body = {}
-            
+
             elements.forEach(element => {
                 if (element.tagName === 'SELECT') {
                     element.addEventListener('change', () => {

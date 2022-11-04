@@ -1,5 +1,6 @@
-import { getCompanyUser, getCoworks, getInfoUser } from "../scripts/request.js"
+import { getCompanyUser, getCoworks, getInfoUser, userNormal} from "../scripts/request.js"
 
+userNormal()
 async function checkedLogged() {
     const token = localStorage.getItem('@token')
     if (!token) {
@@ -9,6 +10,7 @@ async function checkedLogged() {
     btnLogout.addEventListener('click', () => {
         localStorage.clear()
     })
+    
 }
 checkedLogged()
 

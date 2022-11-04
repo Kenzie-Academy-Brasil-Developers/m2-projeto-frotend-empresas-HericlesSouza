@@ -1,16 +1,17 @@
-import { allCompanies, allDepartments, allUsers, filterDepartmentsCompany } from "../scripts/request.js"
+import { allCompanies, allDepartments, allUsers, filterDepartmentsCompany, userAdmin } from "../scripts/request.js"
 import { showModalDeleteUser, showModalDepartmentCreate, showModalDepartmentDelete, showModalDepartmentEdit, showModalDepartmentInfo, showModalEditUser } from "./modal.js";
 
+userAdmin()
 async function checkedLogged() {
     const token = localStorage.getItem('@token')
-    if(!token){
+    if (!token) {
         window.location.href = '../login/index.html'
     }
-
     const btnLogout = document.querySelector('.btn-login-burguer')
     btnLogout.addEventListener('click', () => {
         localStorage.clear()
     })
+
 }
 checkedLogged()
 
@@ -92,22 +93,22 @@ async function filterCompany() {
     const companies = await allCompanies()
     const select = document.querySelector('#select-all-companies')
     const option = select.options[select.selectedIndex].value
-    
-    if(select.length <= 2) {
+
+    if (select.length <= 2) {
         companies.forEach(element => {
             const options = document.createElement('option')
             options.value = element.name
             options.innerText = element.name
             select.append(options)
         })
-    
+
         select.addEventListener('change', async () => {
             const options = select.options[select.selectedIndex].value
             const companies = await allCompanies()
-        
-            if(options !== 'Todas') {
+
+            if (options !== 'Todas') {
                 companies.forEach(async company => {
-                    if(company.name === options) {
+                    if (company.name === options) {
                         const companyFilter = await filterDepartmentsCompany(company.uuid)
                         renderFilterCompany(companyFilter)
                     }
@@ -116,17 +117,17 @@ async function filterCompany() {
                 await renderAllDepartments()
             }
         })
-    } 
+    }
 
-    if(option === '0' || option === 'Todas') {
+    if (option === '0' || option === 'Todas') {
         await renderAllDepartments()
     } else {
         const options = select.options[select.selectedIndex].value
         const companies = await allCompanies()
-       
-        if(options !== 'Todas') {
+
+        if (options !== 'Todas') {
             companies.forEach(async company => {
-                if(company.name === options) {
+                if (company.name === options) {
                     const companyFilter = await filterDepartmentsCompany(company.uuid)
                     renderFilterCompany(companyFilter)
                 }
@@ -166,7 +167,7 @@ async function showAllModalDepartment() {
     showModalDepartmentDelete()
 }
 
-async function showAllModalUser(){
+async function showAllModalUser() {
     showModalEditUser()
     showModalDeleteUser()
 }
@@ -179,4 +180,4 @@ function clearLocalStorage() {
 }
 clearLocalStorage()
 showModalDepartmentCreate()
-export { filterCompany, showAllModalDepartment, renderAllUsers, showAllModalUser}
+export { filterCompany, showAllModalDepartment, renderAllUsers, showAllModalUser }
